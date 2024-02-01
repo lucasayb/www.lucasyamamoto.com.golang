@@ -7,8 +7,8 @@ import (
 
 func main() {
 	output := "_site"
-	files := parser.ParseMultiple("_posts")
-	for _, file := range files {
-		generator.Generate(file.Markdown, file.Slug, output)
+	posts := parser.ParseMultiple("_posts")
+	for _, post := range posts {
+		generator.Generate(post, output)
 	}
 }

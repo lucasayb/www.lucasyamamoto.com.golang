@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/gomarkdown/markdown"
+	markdownParser "github.com/gomarkdown/markdown/parser"
 	"gopkg.in/yaml.v3"
 )
 
@@ -22,7 +23,7 @@ type Frontmatter struct {
 }
 
 type Post struct {
-	Markdown    string
+	HTML        string
 	Frontmatter Frontmatter
 	Layout      string
 	Slug        string
@@ -31,7 +32,7 @@ type Post struct {
 
 func ParseMultiple(dirName string) []Post {
 	dirEntries, err := os.ReadDir(dirName)
-	posts := make([]Post, len(dirEntries))
+	posts := make([]Post, 0)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -83,24 +84,31 @@ func Parse(filePath string, fileName string) Post {
 
 	file.Close()
 
-	post := Post{
-		Markdown:    parseMarkdown(rawMarkdown),
-		Frontmatter: parseFrontmatter(rawFrontmatter),
+	if !frontmatterExtracted {
+		log.Fatal("Frontmatter malformatted.")
 	}
 
-	if post.Frontmatter.Layout == "post" {
-		post.Layout = "default.html"
-	} else {
-		post.Layout = strings.Join([]string{post.Frontmatter.Layout, "html"}, ".")
+	parsedFrontmatter := parseFrontmatter(rawFrontmatter)
+
+	post := Post{
+		Frontmatter: parsedFrontmatter,
+		HTML:        parseMarkdown(parsedFrontmatter.Title, rawMarkdown),
 	}
+
 	post.Date = fileName[0:10]
 	post.Slug = strings.TrimSuffix(fileName[11:], ".md")
 
 	return post
 }
 
-func parseMarkdown(rawMarkdown []byte) string {
-	html := markdown.ToHTML(rawMarkdown, nil, nil)
+func parseMarkdown(title string, rawMarkdown []byte) string {
+	extensions := markdownParser.CommonExtensions | markdownParser.AutoHeadingIDs
+	p := markdownParser.NewWithExtensions(extensions)
+	markdownPayload := make([]byte, 0)
+	markdownPayload = append(markdownPayload, []byte(strings.Join([]string{"#", title}, " "))...)
+	markdownPayload = append(markdownPayload, '\n')
+	markdownPayload = append(markdownPayload, rawMarkdown...)
+	html := markdown.ToHTML(markdownPayload, p, nil)
 	return string(html)
 }
 
