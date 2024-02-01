@@ -6,5 +6,5 @@ import (
 )
 
 func BenchmarkParse(b *testing.B) {
-	parser.Parse("_posts")
+	parser.ParseMultiple("_posts")
 }

@@ -22,7 +22,5 @@ go.work
 
 _posts/*
 !_posts/.keep
-_categories/*
-!_categories/.keep
-_appleshortcuts/*
-!_appleshortcuts/.keep
+
+_site

@@ -17,46 +17,47 @@ type Frontmatter struct {
 	Thumbnail     string
 	Category      string
 	Color         string
+	Layout        string
 	Redirect_from []string
 }
 
-type ParsedFile struct {
-	markdown    string
-	frontmatter Frontmatter
+type Post struct {
+	Markdown    string
+	Frontmatter Frontmatter
+	Layout      string
+	Slug        string
+	Date        string
 }
 
-func Parse(dirName string) []ParsedFile {
-	return filesReader(dirName)
-}
-
-func filesReader(dirName string) []ParsedFile {
+func ParseMultiple(dirName string) []Post {
 	dirEntries, err := os.ReadDir(dirName)
-	parsedFiles := make([]ParsedFile, len(dirEntries))
+	posts := make([]Post, len(dirEntries))
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, dirEntry := range dirEntries {
-		parsedFile := ParsedFile{}
-		file_path := strings.Join([]string{dirName, dirEntry.Name()}, "/")
-		file, errRead := os.OpenFile(file_path, os.O_RDONLY, 0755)
-		if errRead != nil {
-			log.Fatal(errRead)
+		fileName := dirEntry.Name()
+		if !strings.HasSuffix(fileName, ".md") {
+			continue
 		}
-		parsedFile.markdown, parsedFile.frontmatter = fileParser(file)
-		parsedFiles = append(parsedFiles, parsedFile)
-		file.Close()
+		filePath := strings.Join([]string{dirName, fileName}, "/")
+
+		posts = append(posts, Parse(filePath, fileName))
 	}
-	return parsedFiles
+	return posts
 }
 
-func fileParser(file *os.File) (string, Frontmatter) {
+func Parse(filePath string, fileName string) Post {
+	file, errRead := os.OpenFile(filePath, os.O_RDONLY, 0755)
+	if errRead != nil {
+		log.Fatal(errRead)
+	}
 	scanner := bufio.NewScanner(file)
 	var inFrontmatterContext bool = false
 	var frontmatterExtracted bool = false
 	var rawFrontmatter []byte
 	var rawMarkdown []byte
-
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "---" && !frontmatterExtracted {
@@ -80,7 +81,22 @@ func fileParser(file *os.File) (string, Frontmatter) {
 		}
 	}
 
-	return parseMarkdown(rawMarkdown), parseFrontmatter(rawFrontmatter)
+	file.Close()
+
+	post := Post{
+		Markdown:    parseMarkdown(rawMarkdown),
+		Frontmatter: parseFrontmatter(rawFrontmatter),
+	}
+
+	if post.Frontmatter.Layout == "post" {
+		post.Layout = "default.html"
+	} else {
+		post.Layout = strings.Join([]string{post.Frontmatter.Layout, "html"}, ".")
+	}
+	post.Date = fileName[0:10]
+	post.Slug = strings.TrimSuffix(fileName[11:], ".md")
+
+	return post
 }
 
 func parseMarkdown(rawMarkdown []byte) string {
