@@ -42,6 +42,7 @@ type Config struct {
 	Description       string
 	Baseurl           string
 	Url               string
+	PerPage           int    `yaml:"per_page"`
 	TwitterUsername   string `yaml:"twitter_username"`
 	GithubUsername    string `yaml:"github_username"`
 	LinkedinUsername  string `yaml:"linkedin_username"`
@@ -49,7 +50,7 @@ type Config struct {
 	DisqusShortname   string `yaml:"disqus_shortname"`
 }
 
-func ParseMultiple(dirName string) ([]Post, Pages) {
+func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 	dirEntries, err := os.ReadDir(dirName)
 	posts := make([]Post, 0)
 	if err != nil {
@@ -65,7 +66,7 @@ func ParseMultiple(dirName string) ([]Post, Pages) {
 
 		posts = append(posts, Parse(filePath, fileName))
 	}
-	perPage := 10
+	perPage := config.PerPage
 	postsCount := len(posts)
 	pagesCount := postsCount / perPage
 	return posts, Pages{PostsCount: postsCount, PerPage: perPage, PagesCount: pagesCount}

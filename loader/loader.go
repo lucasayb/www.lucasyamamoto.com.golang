@@ -17,6 +17,7 @@ type PaginationData struct {
 	PreviousPage     int
 	NextPage         int
 	Pages            int
+	Page             int
 	ShowPreviousPage bool
 	ShowNextPage     bool
 }

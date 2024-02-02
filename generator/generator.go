@@ -25,6 +25,7 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 		paginationData := loader.PaginationData{
 			PreviousPage:     previousPage,
 			NextPage:         nextPage,
+			Page:             page,
 			Pages:            pages.PagesCount,
 			ShowPreviousPage: previousPage >= 1,
 			ShowNextPage:     nextPage <= pages.PagesCount,
@@ -41,6 +42,8 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 			fileName = "index-" + strconv.FormatInt(int64(page), 10)
 		}
 		createFile(output, fileName, rendered.Bytes())
+		to += pages.PerPage
+		from += pages.PerPage
 	}
 	fmt.Println("Home generated successfully")
 	return rendered.String()
