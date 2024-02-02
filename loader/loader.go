@@ -1,0 +1,71 @@
+package loader
+
+import (
+	"bytes"
+	"html/template"
+	"log"
+	"static_site_generator/parser"
+)
+
+type HomepageData struct {
+	Posts      []parser.Post
+	Pagination PaginationData
+}
+
+type PaginationData struct {
+	PreviousPage     int
+	NextPage         int
+	Pages            int
+	ShowPreviousPage bool
+	ShowNextPage     bool
+}
+
+func load(filePath string) *template.Template {
+	tmpl, err := template.ParseFiles(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return tmpl
+}
+
+func Homepager(homepageData HomepageData) bytes.Buffer {
+	tmpl := load("_layouts/home.html")
+	var rendered bytes.Buffer
+	err := tmpl.Execute(&rendered, homepageData)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return rendered
+}
+
+func Layouts() *template.Template {
+	pattern := "_layouts/*.html"
+	return template.Must(template.ParseGlob(pattern))
+}
+
+// func Load() {
+// 	paginationBytes := Paginate(PaginationData{PreviousLink: "/", NextLink: "/page/1", PagesLength: 10})
+// 	fmt.Println(paginationBytes.String())
+// }
+
+// func Includes() {
+// 	pattern := "_partials/*.html"
+// 	return template.Must(template.ParseGlob(pattern))
+// }
+
+// func Load(templateFolder string, templateName string) template.Template {
+// 	pattern := ""
+// 	templates := template.Must(template.ParseGlob(pattern))
+// 	// filePath := strings.Join([]string{ templateFolder, "/", templateName, ".html" })
+
+// 	// file, err := os.ReadFile(filePath)
+// 	// if err != nil {
+// 	// 	log.Fatal(err)
+// 	// }
+
+// 	// templateData, errTemplate := template.New(templateName).Parse(string(file))
+// 	// if errTemplate != nil {
+// 	// 	log.Fatal(errTemplate)
+// 	// }
+// 	// return templateData.
+// }

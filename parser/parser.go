@@ -30,7 +30,13 @@ type Post struct {
 	Date        string
 }
 
-func ParseMultiple(dirName string) []Post {
+type Pages struct {
+	PostsCount int
+	PerPage    int
+	PagesCount int
+}
+
+func ParseMultiple(dirName string) ([]Post, Pages) {
 	dirEntries, err := os.ReadDir(dirName)
 	posts := make([]Post, 0)
 	if err != nil {
@@ -46,7 +52,10 @@ func ParseMultiple(dirName string) []Post {
 
 		posts = append(posts, Parse(filePath, fileName))
 	}
-	return posts
+	perPage := 10
+	postsCount := len(posts)
+	pagesCount := postsCount / perPage
+	return posts, Pages{PostsCount: postsCount, PerPage: perPage, PagesCount: pagesCount}
 }
 
 func Parse(filePath string, fileName string) Post {

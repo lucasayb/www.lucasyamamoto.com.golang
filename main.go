@@ -7,8 +7,7 @@ import (
 
 func main() {
 	output := "_site"
-	posts := parser.ParseMultiple("_posts")
-	for _, post := range posts {
-		generator.Generate(post, output)
-	}
+	posts, pages := parser.ParseMultiple("_posts")
+	generator.GenerateHome(posts, pages, output)
+	generator.GeneratePostMultiple(posts, output)
 }
