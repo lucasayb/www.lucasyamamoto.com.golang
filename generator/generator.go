@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-func GenerateHome(posts []parser.Post, pages parser.Pages, output string) string {
+func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages, output string) string {
 	createFolder(output)
 	from := 0
 	to := pages.PerPage
@@ -29,13 +29,12 @@ func GenerateHome(posts []parser.Post, pages parser.Pages, output string) string
 			ShowPreviousPage: previousPage >= 1,
 			ShowNextPage:     nextPage <= pages.PagesCount,
 		}
-		fmt.Println(paginationData)
 		homepageData := loader.HomepageData{
 			Posts:      postsPage,
+			Config:     config,
 			Pagination: paginationData,
 		}
 		rendered = loader.Homepager(homepageData)
-		fmt.Println(rendered.String())
 		if page == 1 {
 			fileName = "index"
 		} else {
@@ -43,6 +42,7 @@ func GenerateHome(posts []parser.Post, pages parser.Pages, output string) string
 		}
 		createFile(output, fileName, rendered.Bytes())
 	}
+	fmt.Println("Home generated successfully")
 	return rendered.String()
 }
 
@@ -60,6 +60,16 @@ func GeneratePost(post parser.Post, output string) {
 	createFile(output, post.Slug, contentWithLayout)
 }
 
+func GenerateAssets() {
+	entries, err := os.ReadDir("assets")
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, entry := range entries {
+		fmt.Println(entry.Name())
+	}
+}
+
 func createFolder(output string) {
 	_, err := os.Stat(output)
 	if err != nil {
@@ -71,7 +81,6 @@ func createFolder(output string) {
 
 func createFile(output string, slug string, content []byte) {
 	fileName := strings.Join([]string{output, "/", slug, ".html"}, "")
-	fmt.Println(fileName)
 	os.WriteFile(fileName, content, 0755)
 }
 

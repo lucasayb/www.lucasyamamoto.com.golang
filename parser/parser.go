@@ -12,14 +12,14 @@ import (
 )
 
 type Frontmatter struct {
-	Title         string
-	Date          string
-	Description   string
-	Thumbnail     string
-	Category      string
-	Color         string
-	Layout        string
-	Redirect_from []string
+	Title        string
+	Date         string
+	Description  string
+	Thumbnail    string
+	Category     string
+	Color        string
+	Layout       string
+	RedirectFrom []string `yaml:"redirect_from"`
 }
 
 type Post struct {
@@ -34,6 +34,19 @@ type Pages struct {
 	PostsCount int
 	PerPage    int
 	PagesCount int
+}
+
+type Config struct {
+	Title             string
+	Email             string
+	Description       string
+	Baseurl           string
+	Url               string
+	TwitterUsername   string `yaml:"twitter_username"`
+	GithubUsername    string `yaml:"github_username"`
+	LinkedinUsername  string `yaml:"linkedin_username"`
+	InstagramUsername string `yaml:"instagram_username"`
+	DisqusShortname   string `yaml:"disqus_shortname"`
 }
 
 func ParseMultiple(dirName string) ([]Post, Pages) {
@@ -108,6 +121,19 @@ func Parse(filePath string, fileName string) Post {
 	post.Slug = strings.TrimSuffix(fileName[11:], ".md")
 
 	return post
+}
+
+func ParseConfig() Config {
+	config := Config{}
+	file, err := os.ReadFile("_config.yml")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = yaml.Unmarshal(file, &config)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return config
 }
 
 func parseMarkdown(title string, rawMarkdown []byte) string {

@@ -1,8 +1,12 @@
+{{ define "Home" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {{ template "Head" .Config }}
   </head>
   <body class="dark">
+    {{ template "Header" }}
+    <main class="content">
     {{ range .Posts }}
       <section class="post-item-wrapper">
         <div class="post-item-info">
@@ -25,7 +29,7 @@
     {{ end }}
     <section class="pagination-wrapper">
       {{ if .Pagination.ShowPreviousPage }}
-      <a class="pagination-link" href="{{ if eq .Pagination.PreviousPage 1 }} /index {{ else }} /index-{{ .Pagination.PreviousPage }} {{ end }}.html">
+      <a class="pagination-link" href="{{ if eq .Pagination.PreviousPage 1 }}/index{{ else }} /index-{{ .Pagination.PreviousPage }} {{ end }}.html">
         <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path>
         </svg>
@@ -42,5 +46,7 @@
       </a>
       {{ end }}
     </section>
+  </main>
   </body>
 </html>
+{{ end }}

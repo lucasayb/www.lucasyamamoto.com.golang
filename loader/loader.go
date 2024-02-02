@@ -9,6 +9,7 @@ import (
 
 type HomepageData struct {
 	Posts      []parser.Post
+	Config     parser.Config
 	Pagination PaginationData
 }
 
@@ -25,13 +26,17 @@ func load(filePath string) *template.Template {
 	if err != nil {
 		log.Fatal(err)
 	}
+	tmpl, err = tmpl.ParseGlob("_includes/*.html")
+	if err != nil {
+		log.Fatal(err)
+	}
 	return tmpl
 }
 
 func Homepager(homepageData HomepageData) bytes.Buffer {
 	tmpl := load("_layouts/home.html")
 	var rendered bytes.Buffer
-	err := tmpl.Execute(&rendered, homepageData)
+	err := tmpl.ExecuteTemplate(&rendered, "Home", homepageData)
 	if err != nil {
 		log.Fatal(err)
 	}
