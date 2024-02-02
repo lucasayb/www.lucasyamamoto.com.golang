@@ -1,0 +1,24 @@
+{{ define "Post" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ template "Head" .Config }}
+    <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
+  </head>
+  <body class="dark">
+    {{ template "Header" }}
+    <main class="content">
+    <section class="post-item-wrapper">
+      <div class="post-item-info">
+        <time class="post-item-date">{{ .Post.Date }}</time>
+        <section class="category">{{ .Post.Frontmatter.Category }}</section>
+      </div>
+      
+      <a class="post-item-link" href="/{{ .Post.Slug }}.html">
+        <div class="post-item-title">{{ .Post.Frontmatter.Title }}</div>
+      </a>
+    </section>
+  </main>
+  </body>
+</html>
+{{ end }}

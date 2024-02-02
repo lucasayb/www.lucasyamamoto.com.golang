@@ -13,6 +13,11 @@ type HomepageData struct {
 	Pagination PaginationData
 }
 
+type PostData struct {
+	Config parser.Config
+	Post   parser.Post
+}
+
 type PaginationData struct {
 	PreviousPage     int
 	NextPage         int
@@ -38,6 +43,16 @@ func Homepager(homepageData HomepageData) bytes.Buffer {
 	tmpl := load("_layouts/home.html")
 	var rendered bytes.Buffer
 	err := tmpl.ExecuteTemplate(&rendered, "Home", homepageData)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return rendered
+}
+
+func Post(postData PostData) bytes.Buffer {
+	tmpl := load("_layouts/post.html")
+	var rendered bytes.Buffer
+	err := tmpl.ExecuteTemplate(&rendered, "Post", postData)
 	if err != nil {
 		log.Fatal(err)
 	}

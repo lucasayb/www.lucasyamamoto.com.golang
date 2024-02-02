@@ -11,5 +11,5 @@ func main() {
 	posts, pages := parser.ParseMultiple(config, "_posts")
 	generator.GenerateAssets()
 	generator.GenerateHome(config, posts, pages, output)
-	generator.GeneratePostMultiple(posts, output)
+	generator.GeneratePostMultiple(config, posts, output)
 }

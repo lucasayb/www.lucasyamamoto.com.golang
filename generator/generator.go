@@ -49,18 +49,20 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 	return rendered.String()
 }
 
-func GeneratePostMultiple(posts []parser.Post, output string) {
+func GeneratePostMultiple(config parser.Config, posts []parser.Post, output string) {
 	for _, post := range posts {
-		GeneratePost(post, output)
+		GeneratePost(config, post, output)
 	}
 }
 
-func GeneratePost(post parser.Post, output string) {
+func GeneratePost(config parser.Config, post parser.Post, output string) {
 	createFolder(output)
-
-	contentWithLayout := injectInLayout(post.HTML, post.Layout)
-
-	createFile(output, post.Slug, contentWithLayout)
+	postData := loader.PostData{
+		Config: config,
+		Post:   post,
+	}
+	content := loader.Post(postData)
+	createFile(output, post.Slug, content.Bytes())
 }
 
 func GenerateAssets() {
