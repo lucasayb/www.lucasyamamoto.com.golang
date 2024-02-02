@@ -8,11 +8,14 @@
   <body class="dark">
     {{ template "Header" }}
     <main class="content">
-    {{ range .Posts }}
-      {{ template "PostItem" . }}
-    {{ end }}
-    {{ template "Pagination" }}
-  </main>
+      <div class="container">
+        {{ range .Posts }}
+          {{ template "PostItem" . }}
+        {{ end }}
+        {{ template "Pagination" . }}
+      </div>
+    </main>
+    {{ template "Body" .Config }}
   </body>
 </html>
 {{ end }}

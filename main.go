@@ -8,8 +8,11 @@ import (
 func main() {
 	output := "_site"
 	config := parser.ParseConfig()
-	posts, pages := parser.ParseMultiple(config, "_posts")
+	entries, pagination := parser.ParseMultiple(config, "_posts")
 	generator.GenerateAssets()
-	generator.GenerateHome(config, posts, pages, output)
-	generator.GeneratePostMultiple(config, posts, output)
+	generator.GenerateHome(config, entries, pagination, output)
+	generator.GeneratePostMultiple(config, entries, output)
+
+	pages, _ := parser.ParseMultiple(config, "_pages")
+	generator.GeneratePostMultiple(config, pages, output)
 }

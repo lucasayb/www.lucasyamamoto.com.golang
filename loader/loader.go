@@ -2,9 +2,9 @@ package loader
 
 import (
 	"bytes"
-	"html/template"
 	"log"
 	"static_site_generator/parser"
+	"text/template"
 )
 
 type HomepageData struct {

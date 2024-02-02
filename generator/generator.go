@@ -18,6 +18,8 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 
 	var rendered bytes.Buffer
 	var fileName string
+	fmt.Println(pages.PerPage)
+	fmt.Println(pages.PagesCount)
 	for page := 1; page <= pages.PagesCount; page++ {
 		postsPage := posts[from:to]
 		previousPage := page - 1
@@ -53,6 +55,7 @@ func GeneratePostMultiple(config parser.Config, posts []parser.Post, output stri
 	for _, post := range posts {
 		GeneratePost(config, post, output)
 	}
+	fmt.Println("Posts generated successfully")
 }
 
 func GeneratePost(config parser.Config, post parser.Post, output string) {
@@ -87,19 +90,4 @@ func createFolder(output string) {
 func createFile(output string, slug string, content []byte) {
 	fileName := strings.Join([]string{output, "/", slug, ".html"}, "")
 	os.WriteFile(fileName, content, 0755)
-}
-
-func injectInLayout(content string, layout string) []byte {
-	var layoutFile string
-	if layout == "post" || layout == "" {
-		layoutFile = "default.html"
-	} else {
-		layoutFile = strings.Join([]string{layout, "html"}, ".")
-	}
-
-	file, err := os.ReadFile(strings.Join([]string{"_layouts", "/", layoutFile}, ""))
-	if err != nil {
-		log.Fatal(err)
-	}
-	return []byte(strings.Replace(string(file), "{{ content }}", content, 1))
 }

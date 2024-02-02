@@ -1,3 +1,10 @@
 {
-  "liveServer.settings.root": "/_site"
+  "liveServer.settings.root": "/_site",
+  "emeraldwalk.runonsave": {
+    "commands": [{
+      "match": ".*",
+      "isAsync": true,
+      "cmd": "go run ."
+    }]
+  }
 }

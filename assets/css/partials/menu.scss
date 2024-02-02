@@ -1,0 +1,24 @@
+menu.main-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 -10px;
+  padding: 0;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  order: 4;
+  @media (min-width: 590px) {
+    flex-basis: auto;
+    order: 0;
+  }
+  li {
+    text-align: center;
+    padding: 0 15px;
+    a {
+      text-align: center;
+      text-transform: lowercase;
+      display: block;
+      text-decoration: none;
+    }
+  }
+}

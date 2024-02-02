@@ -63,8 +63,10 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 			continue
 		}
 		filePath := strings.Join([]string{dirName, fileName}, "/")
-
-		posts = append(posts, Parse(filePath, fileName))
+		parsedPost := Parse(filePath, fileName)
+		if parsedPost.Frontmatter.Layout == "post" || parsedPost.Frontmatter.Layout == "" {
+			posts = append(posts, parsedPost)
+		}
 	}
 	perPage := config.PerPage
 	postsCount := len(posts)

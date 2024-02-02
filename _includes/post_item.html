@@ -2,19 +2,19 @@
 <section class="post-item-wrapper">
   <div class="post-item-info">
     <time class="post-item-date">{{ .Date }}</time>
-    <section class="category">{{ .Frontmatter.Category }}</section>
+    {{ template "CategoryPill" .Frontmatter }}
   </div>
   
   <a class="post-item-link" href="/{{ .Slug }}.html">
     <div class="post-item-title">{{ .Frontmatter.Title }}</div>
   </a>
-  <!-- <p class="post-item-description">{{ .Frontmatter.Description }}</p>
+  <p class="post-item-description">{{ .Frontmatter.Description }}</p>
 
   <a class="post-item-link" href="/{{ .Slug }}.html">
     <div class="post-item-thumbnail" style="position: relative; overflow: hidden;">
       <div aria-hidden="true" style="width: 100%; padding-bottom: 50%;"></div>
       <img aria-hidden="true" src="{{ .Frontmatter.Thumbnail }}" alt="" />
     </div>
-  </a> -->
+  </a>
 </section>
 {{ end }}
