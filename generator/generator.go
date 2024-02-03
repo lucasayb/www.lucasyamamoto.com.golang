@@ -27,7 +27,6 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 			to = postsCount
 		}
 		postsPage := posts[from:to]
-		fmt.Println(posts[0].Frontmatter.Title)
 		previousPage := page - 1
 		nextPage := page + 1
 		paginationData := loader.PaginationData{
@@ -146,18 +145,6 @@ func copyFiles(sourceDir string, outputDir string, baseSourceDir string, baseOut
 		log.Fatal(err)
 	}
 
-	fmt.Println()
-	fmt.Println("----------------------------")
-	fmt.Printf("baseDir: %s", baseDir)
-	fmt.Println()
-	fmt.Printf("sourceDir: %s", sourceDir)
-	fmt.Println()
-	fmt.Printf("absSourceDir: %s", absSourceDir)
-	fmt.Println()
-	fmt.Printf("absOutputDir: %s", absOutputDir)
-	fmt.Println()
-	fmt.Println("----------------------------")
-	fmt.Println()
 	createFolder(absOutputDir)
 	for _, entry := range entries {
 		fileName := entry.Name()
