@@ -2,6 +2,7 @@ package generator
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -17,10 +18,16 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 	from := 0
 	to := pages.PerPage
 
+	posts = sortPosts(config, posts)
+	postsCount := len(posts)
 	var rendered bytes.Buffer
 	var fileName string
 	for page := 1; page <= pages.PagesCount; page++ {
+		if to > postsCount {
+			to = postsCount
+		}
 		postsPage := posts[from:to]
+		fmt.Println(posts[0].Frontmatter.Title)
 		previousPage := page - 1
 		nextPage := page + 1
 		paginationData := loader.PaginationData{
@@ -71,6 +78,46 @@ func GenerateAssets(output string) {
 	createFolder(output)
 	sourceDir := "static"
 	copyFiles(sourceDir, output, sourceDir, output, "")
+}
+
+func GenerateJSON(posts []parser.Post) {
+	formattedJSON, err := json.Marshal(posts)
+	if err != nil {
+		log.Fatal(err)
+	}
+	os.WriteFile("_site/posts.json", formattedJSON, 0666)
+}
+
+func sortPosts(config parser.Config, posts []parser.Post) []parser.Post {
+	var pivot parser.Post
+
+	sortDirection := config.SortDirection
+
+	for z := 0; z < len(posts); z++ {
+		for i := 0; i < len(posts); i++ {
+			if sortDirection == "asc" {
+				if i+1 >= len(posts) {
+					continue
+				}
+				if posts[i].Frontmatter.Date > posts[i+1].Frontmatter.Date {
+					pivot = posts[i]
+					posts[i] = posts[i+1]
+					posts[i+1] = pivot
+				}
+			} else {
+				if i-1 <= -1 {
+					continue
+				}
+				if posts[i].Frontmatter.Date > posts[i-1].Frontmatter.Date {
+					pivot = posts[i]
+					posts[i] = posts[i-1]
+					posts[i-1] = pivot
+				}
+			}
+		}
+	}
+
+	return posts
 }
 
 func copyFiles(sourceDir string, outputDir string, baseSourceDir string, baseOutputDir string, baseDir string) {

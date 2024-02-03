@@ -3,6 +3,7 @@ package parser
 import (
 	"bufio"
 	"log"
+	"math"
 	"os"
 	"strings"
 
@@ -43,6 +44,7 @@ type Config struct {
 	Baseurl           string
 	Url               string
 	PerPage           int    `yaml:"per_page"`
+	SortDirection     string `yaml:"sort_direction"`
 	TwitterUsername   string `yaml:"twitter_username"`
 	GithubUsername    string `yaml:"github_username"`
 	LinkedinUsername  string `yaml:"linkedin_username"`
@@ -70,8 +72,9 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 	}
 	perPage := config.PerPage
 	postsCount := len(posts)
-	pagesCount := postsCount / perPage
-	return posts, Pages{PostsCount: postsCount, PerPage: perPage, PagesCount: pagesCount}
+
+	pagesCount := math.Ceil(float64(postsCount) / float64(perPage))
+	return posts, Pages{PostsCount: postsCount, PerPage: perPage, PagesCount: int(pagesCount)}
 }
 
 func Parse(filePath string, fileName string) Post {

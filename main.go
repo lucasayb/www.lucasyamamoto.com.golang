@@ -10,6 +10,7 @@ func main() {
 	config := parser.ParseConfig()
 	entries, pagination := parser.ParseMultiple(config, "_posts")
 	generator.GenerateAssets(output)
+	generator.GenerateJSON(entries)
 	generator.GenerateHome(config, entries, pagination, output)
 	generator.GeneratePostMultiple(config, entries, output)
 
