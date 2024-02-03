@@ -1,0 +1,17 @@
+{
+  "name": "lucasyamamoto.golang",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lucasayb/www.lucasyamamoto.com.golang.git",
+  "author": "Lucas Yamamoto <17356081+lucasayb@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  },
+
+  "scripts": {
+    "build:css": "node-sass sass/styles.scss _site/assets/css/styles.css",
+    "build": "yarn build:css && bin/build",
+    "postinstall": "yarn build"
+  }
+}
