@@ -19,8 +19,6 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 
 	var rendered bytes.Buffer
 	var fileName string
-	fmt.Println(pages.PerPage)
-	fmt.Println(pages.PagesCount)
 	for page := 1; page <= pages.PagesCount; page++ {
 		postsPage := posts[from:to]
 		previousPage := page - 1
