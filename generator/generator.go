@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"static_site_generator/loader"
 	"static_site_generator/parser"
 	"strconv"
@@ -68,13 +69,63 @@ func GeneratePost(config parser.Config, post parser.Post, output string) {
 	createFile(output, post.Slug, content.Bytes())
 }
 
-func GenerateAssets() {
-	entries, err := os.ReadDir("assets")
+func GenerateAssets(output string) {
+	createFolder(output)
+	sourceDir := "static"
+	copyFiles(sourceDir, output, sourceDir, output, "")
+}
+
+func copyFiles(sourceDir string, outputDir string, baseSourceDir string, baseOutputDir string, baseDir string) {
+	entries, err := os.ReadDir(sourceDir)
 	if err != nil {
 		log.Fatal(err)
 	}
+	var filePath string
+	baseDir, err = filepath.Abs(baseDir)
+	if err != nil {
+		log.Fatal(err)
+	}
+	absBaseSourceDir, err := filepath.Abs(baseSourceDir)
+	if err != nil {
+		log.Fatal(err)
+	}
+	absSourceDir, err := filepath.Abs(sourceDir)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if baseDir != "" {
+		outputDir = strings.Replace(absSourceDir, absBaseSourceDir, "", 1)
+	}
+	absOutputDir, err := filepath.Abs(filepath.Join(baseDir, baseOutputDir, outputDir))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println()
+	fmt.Println("----------------------------")
+	fmt.Printf("baseDir: %s", baseDir)
+	fmt.Println()
+	fmt.Printf("sourceDir: %s", sourceDir)
+	fmt.Println()
+	fmt.Printf("absSourceDir: %s", absSourceDir)
+	fmt.Println()
+	fmt.Printf("absOutputDir: %s", absOutputDir)
+	fmt.Println()
+	fmt.Println("----------------------------")
+	fmt.Println()
+	createFolder(absOutputDir)
 	for _, entry := range entries {
-		fmt.Println(entry.Name())
+		fileName := entry.Name()
+		filePath = filepath.Join(absSourceDir, fileName)
+		if !entry.IsDir() {
+			file, err := os.ReadFile(filePath)
+			if err != nil {
+				log.Fatal(err)
+			}
+			os.WriteFile(filepath.Join(absOutputDir, fileName), file, 0666)
+		} else {
+			copyFiles(filePath, outputDir, baseSourceDir, baseOutputDir, baseDir)
+		}
 	}
 }
 

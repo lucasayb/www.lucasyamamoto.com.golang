@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+body {
+  font: 400 18px/1.5 'Rajdhani', sans-serif;
+  color: var(--primary-text-color);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-wrap: break-word;
+	background-color: var(--primary-background-color);
+	transition: background-color var(--transition-time), color var(--transition-time);
+}
+a {
+  color: var(--primary-link-color);
+  display: flex;
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	text-underline-offset: 0.4rem;
+	transition: color var(--transition-time);
+	&:hover {
+		color: var(--primary-link-color-hover);
+	}
+}
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}

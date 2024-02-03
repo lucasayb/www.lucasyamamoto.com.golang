@@ -20,8 +20,8 @@
 # Go workspace file
 go.work
 
-_posts/*
 !_posts/.keep
 
 _site
 .sass-cache
+.DS_Store

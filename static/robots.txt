@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /search
+
+Sitemap: https://www.lucasyamamoto.com/sitemap/sitemap-0.xml

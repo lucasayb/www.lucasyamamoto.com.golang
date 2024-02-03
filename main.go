@@ -9,7 +9,7 @@ func main() {
 	output := "_site"
 	config := parser.ParseConfig()
 	entries, pagination := parser.ParseMultiple(config, "_posts")
-	generator.GenerateAssets()
+	generator.GenerateAssets(output)
 	generator.GenerateHome(config, entries, pagination, output)
 	generator.GeneratePostMultiple(config, entries, output)
 

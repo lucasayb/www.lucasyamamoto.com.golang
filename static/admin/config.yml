@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: lucasayb/lucasyamamoto.gatsbyjs
+  branch: main
+  site_domain: lucasyamamoto.netlify.com
+
+media_folder: "static/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "_posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Category",
+          name: "category",
+          widget: "relation",
+          collection: "categories",
+          search_fields: ["name"],
+          value_field: "name",
+          display_fields: ["name"]
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Redirect from", name: "redirect_from", widget: "list" }
+
+  - name: "categories"
+    label: "Categories"
+    folder: "_categories"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Name", name: "name", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        } # The fields for each document, usually in front matter
+      - { label: "Color", name: "color", widget: "color", allowInput: true }
+
+  - name: "appleshortcuts"
+    label: "Apple Shortcuts"
+    folder: "_appleshortcuts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Icloud Link", name: "link", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        } 
+      - { label: "Icon", name: "icon", widget: "image" }
