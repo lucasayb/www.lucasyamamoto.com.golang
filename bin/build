@@ -1,2 +1,2 @@
-node-sass --update static/assets/css/styles.scss _site/assets/css/styles.css
+sass --update static/assets/css/styles.scss:_site/assets/css/styles.css --style compressed
 go run .
