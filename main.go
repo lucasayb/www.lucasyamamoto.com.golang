@@ -16,4 +16,5 @@ func main() {
 
 	pages, _ := parser.ParseMultiple(config, "_pages")
 	generator.GeneratePostMultiple(config, pages, output)
+	generator.GenerateSitemap(entries, pages, config, output)
 }

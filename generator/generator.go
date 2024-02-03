@@ -3,6 +3,7 @@ package generator
 import (
 	"bytes"
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"log"
 	"os"
@@ -12,6 +13,23 @@ import (
 	"strconv"
 	"strings"
 )
+
+type SitemapEntry struct {
+	XMLName    xml.Name `xml:"url"`
+	Loc        string   `xml:"loc"`
+	Changefreq string   `xml:"changefreq"`
+	Priority   float64  `xml:"priority"`
+}
+
+type Sitemap struct {
+	XMLName xml.Name       `xml:"urlset"`
+	Url     []SitemapEntry `xml:"url"`
+	XMLNS   string         `xml:"xmlns,attr"`
+	News    string         `xml:"xmlns:news,attr"`
+	Xhtml   string         `xml:"xmlns:xhtml,attr"`
+	Image   string         `xml:"xmlns:image,attr"`
+	Video   string         `xml:"xmlns:video,attr"`
+}
 
 func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages, output string) string {
 	createFolder(output)
@@ -85,6 +103,42 @@ func GenerateJSON(posts []parser.Post) {
 		log.Fatal(err)
 	}
 	os.WriteFile("_site/posts.json", formattedJSON, 0666)
+}
+
+func GenerateSitemap(posts []parser.Post, pages []parser.Post, config parser.Config, output string) {
+	buffer := bytes.Buffer{}
+	buffer.Write([]byte(xml.Header))
+	sitemap := Sitemap{
+		XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9",
+		News:  "http://www.google.com/schemas/sitemap-news/0.9",
+		Xhtml: "http://www.w3.org/1999/xhtml",
+		Image: "http://www.google.com/schemas/sitemap-image/1.1",
+		Video: "http://www.google.com/schemas/sitemap-video/1.1",
+	}
+	entries := make([]SitemapEntry, 0)
+	for _, post := range posts {
+		sitemapEntry := SitemapEntry{
+			Loc:        strings.Join([]string{config.Url, "/", post.Slug, ".html"}, ""),
+			Changefreq: `daily`,
+			Priority:   0.7,
+		}
+		entries = append(entries, sitemapEntry)
+	}
+	for _, post := range pages {
+		sitemapEntry := SitemapEntry{
+			Loc:        strings.Join([]string{config.Url, "/", post.Slug, ".html"}, ""),
+			Changefreq: `daily`,
+			Priority:   0.7,
+		}
+		entries = append(entries, sitemapEntry)
+	}
+	sitemap.Url = entries
+	generatedXml, err := xml.Marshal(sitemap)
+	buffer.Write(generatedXml)
+	if err != nil {
+		log.Fatal(err)
+	}
+	os.WriteFile(filepath.Join(output, "sitemap.xml"), buffer.Bytes(), 0666)
 }
 
 func sortPosts(config parser.Config, posts []parser.Post) []parser.Post {
