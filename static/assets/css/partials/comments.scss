@@ -1,0 +1,23 @@
+.comments- {
+  &wrapper {
+    color: var(--primary-text-color) !important;
+    margin: auto;
+    padding: 15px;
+  }
+  &title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &body {
+    background-color: #0a061c;
+    border-radius: 10px;
+    transition: background-color var(--transition-time),
+      color var(--transition-time);
+    color: var(--primary-text-color) !important;
+    padding: 15px;
+    iframe[src*="ads-iframe"] {
+      display: none;
+    }
+  }
+}

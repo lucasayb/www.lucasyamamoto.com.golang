@@ -4,16 +4,25 @@
   <head>
     {{ template "Head" .Config }}
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
-    <meta name="description" content="{{ .Post.Frontmatter.Description }}">
-    <meta property="og:title" content="{{ .Post.Frontmatter.Title }}">
-    <meta property="og:description" content="{{ .Post.Frontmatter.Description }}">
-    <meta property="og:image" content="{{ .Post.Frontmatter.Thumbnail }}">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:src" content="{{ .Post.Frontmatter.Thumbnail }}">
-    <meta name="twitter:creator" content="{{ .Config.TwitterUsername }}">
-    <meta name="twitter:title" content="{{ .Post.Frontmatter.Title }}">
-    <meta name="twitter:description" content="{{ .Post.Frontmatter.Description }}">
+    <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
+    <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
+    <meta
+      property="og:description"
+      content="{{ .Post.Frontmatter.Description }}"
+    />
+    <meta property="og:image" content="{{ .Post.Frontmatter.Thumbnail }}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image:src"
+      content="{{ .Post.Frontmatter.Thumbnail }}"
+    />
+    <meta name="twitter:creator" content="{{ .Config.TwitterUsername }}" />
+    <meta name="twitter:title" content="{{ .Post.Frontmatter.Title }}" />
+    <meta
+      name="twitter:description"
+      content="{{ .Post.Frontmatter.Description }}"
+    />
   </head>
   <body class="dark">
     {{ template "Header" }}
@@ -29,16 +38,44 @@
               <time class="post-date"></time>
               {{ template "CategoryPill" .Post.Frontmatter }}
             </section>
-            <h2 class="post-description">{{ .Post.Frontmatter.Description }}</h2>
-            <div class="post-thumbnail gatsby-image-wrapper"><img src="{{ .Post.Frontmatter.Thumbnail }}" /></div>
+            <h2 class="post-description">
+              {{ .Post.Frontmatter.Description }}
+            </h2>
+            <div class="post-thumbnail gatsby-image-wrapper">
+              <img src="{{ .Post.Frontmatter.Thumbnail }}" />
+            </div>
             <section class="post-body">{{ .Post.HTML }}</section>
             <section class="post-social-wrapper">
               <div class="sharethis-inline-share-buttons"></div>
             </section>
           </section>
         </section>
+        
+        <section class="comments-wrapper">
+          <h2 class="comments-title">Comments</h2>
+          <section class="comments-body"><div id="disqus_thread"></div></section>
+        </section>
       </div>
     </main>
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+      var disqus_config = function () {
+        this.page.url = window.location.href
+        this.page.identifier = window.location.href; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+
+      (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement("script");
+        s.src = "https://lucas-yamamoto.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
     {{ template "Body" .Config }}
   </body>
 </html>
