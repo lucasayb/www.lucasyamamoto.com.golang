@@ -165,6 +165,7 @@
       border-radius: 10px;
       background-color: var(--primary-codeblock-background-color);
       transition: background-color var(--transition-time), color var(--transition-time);
+      white-space: pre;
     }
 
     code {
