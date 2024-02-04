@@ -1,12 +1,14 @@
 ---
+title: "2022: New Year, Big Changes"
+date: 2022-01-16 15:43:01 -0300
+category: Life__#6ab04c
+description: Recently at CodeBy, we migrated our apps and deployments from
+  Digital Ocean to AWS, allowing us to take advantage of the full range of
+  services that Amazon Web Services offers.
+thumbnail: /assets/uploads/2022.jpg
 redirect_from:
   - /vida/2022/01/16/2022-ano-novo-grandes-mudancas.html
   - /2022-ano-novo-grandes-mudancas
-title:  "2022: New Year, Big Changes"
-date:   2022-01-16 15:43:01 -0300
-category: Life
-thumbnail: /assets/uploads/2022.jpg
-description: Recently at CodeBy, we migrated our apps and deployments from Digital Ocean to AWS, allowing us to take advantage of the full range of services that Amazon Web Services offers.
 color: "#6ab04c"
 ---
 
