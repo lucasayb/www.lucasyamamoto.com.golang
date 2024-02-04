@@ -1,22 +1,66 @@
-{{ define "Post" }}
+{{ define "Page" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     {{ template "Head" .Config }}
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
+    <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
+    <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
+    <meta
+      property="og:description"
+      content="{{ .Post.Frontmatter.Description }}"
+    />
+    <meta property="og:image" content="{{ .Post.Frontmatter.Thumbnail }}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image:src"
+      content="{{ .Post.Frontmatter.Thumbnail }}"
+    />
+    <meta name="twitter:creator" content="{{ .Config.TwitterUsername }}" />
+    <meta name="twitter:title" content="{{ .Post.Frontmatter.Title }}" />
+    <meta
+      name="twitter:description"
+      content="{{ .Post.Frontmatter.Description }}"
+    />
   </head>
   <body class="dark">
     {{ template "Header" }}
     <main class="content">
-    <section class="post-item-wrapper">
-      <div class="post-item-info">
-        <time class="post-item-date">{{ .Post.Date }}</time>
+      <div class="container">
+        <section class="post-item-wrapper">
+          <section class="post-wrapper">
+            <h1 class="post-title">{{ .Post.Frontmatter.Title }}</h1>
+            <section class="post-body">{{ .Post.HTML }}</section>
+          </section>
+        </section>
+        
+        <section class="comments-wrapper">
+          <h2 class="comments-title">Comments</h2>
+          <section class="comments-body"><div id="disqus_thread"></div></section>
+        </section>
       </div>
-      
-      <div class="post-item-title">{{ .Post.Frontmatter.Title }}</div>
-    </section>
-  </main>
-  {{ template "Body" .Config }}
+    </main>
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+      var disqus_config = function () {
+        this.page.url = "{{ .Config.Url }}/{{ .Post.Slug }}";
+        this.page.identifier = "{{ .Config.Url }}/{{ .Post.Slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+
+      (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement("script");
+        s.src = "https://lucas-yamamoto.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    {{ template "Body" .Config }}
   </body>
 </html>
 {{ end }}
