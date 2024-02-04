@@ -42,7 +42,7 @@ func load(filePath string) *template.Template {
 func Homepager(homepageData HomepageData) bytes.Buffer {
 	tmpl := load("_layouts/home.html")
 	var rendered bytes.Buffer
-	err := tmpl.ExecuteTemplate(&rendered, "Home", homepageData)
+	err := tmpl.ExecuteTemplate(&rendered, "home", homepageData)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -54,9 +54,9 @@ func Post(postData PostData) bytes.Buffer {
 	if layout == "" {
 		layout = "post"
 	}
-	tmpl := load("_layouts/" + postData.Post.Frontmatter.Layout + ".html")
+	tmpl := load("_layouts/" + layout + ".html")
 	var rendered bytes.Buffer
-	err := tmpl.ExecuteTemplate(&rendered, "Post", postData)
+	err := tmpl.ExecuteTemplate(&rendered, layout, postData)
 	if err != nil {
 		log.Fatal(err)
 	}

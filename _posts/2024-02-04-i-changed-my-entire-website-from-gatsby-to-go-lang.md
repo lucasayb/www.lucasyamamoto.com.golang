@@ -112,20 +112,20 @@ And in the layout `home.html`, I just render this information:
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{ template "Head" .Config }}
+    {{ template "head" .Config }}
     <title>{{ .Config.Title }}</title>
   </head>
   <body class="dark">
-    {{ template "Header" }}
+    {{ template "header" }}
     <main class="content">
       <div class="container">
         {{ range .Posts }}
-          {{ template "PostItem" . }}
+          {{ template "post_item" . }}
         {{ end }}
-        {{ template "Pagination" . }}
+        {{ template "pagination" . }}
       </div>
     </main>
-    {{ template "Body" .Config }}
+    {{ template "body" .Config }}
   </body>
 </html>
 {{ end }}

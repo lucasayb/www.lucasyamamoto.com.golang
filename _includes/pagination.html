@@ -1,4 +1,4 @@
-{{ define "Pagination" }}
+{{ define "pagination" }}
 <section class="pagination-wrapper">
   {{ if .Pagination.ShowPreviousPage }}
   <a class="pagination-link" href="{{ if eq .Pagination.PreviousPage 1 }}/index{{ else }}/index-{{ .Pagination.PreviousPage }}{{ end }}.html">

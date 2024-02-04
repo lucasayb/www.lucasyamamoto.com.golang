@@ -1,8 +1,8 @@
-{{ define "Page" }}
+{{ define "page" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{ template "Head" .Config }}
+    {{ template "head" .Config }}
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
     <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
     <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
@@ -25,7 +25,7 @@
     />
   </head>
   <body class="dark">
-    {{ template "Header" }}
+    {{ template "header" }}
     <main class="content">
       <div class="container">
         <section class="post-item-wrapper">
@@ -60,7 +60,7 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    {{ template "Body" .Config }}
+    {{ template "body" .Config }}
   </body>
 </html>
 {{ end }}

@@ -1,8 +1,8 @@
-{{ define "Post" }}
+{{ define "post" }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{ template "Head" .Config }}
+    {{ template "head" .Config }}
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
     <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
     <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
@@ -25,7 +25,7 @@
     />
   </head>
   <body class="dark">
-    {{ template "Header" }}
+    {{ template "header" }}
     <main class="content">
       <div class="container">
         <section class="post-item-wrapper">
@@ -36,7 +36,7 @@
             </section>
             <section class="post-header">
               <time class="post-date"></time>
-              {{ template "CategoryPill" .Post.Frontmatter }}
+              {{ template "category_pill" .Post.Frontmatter }}
             </section>
             <h2 class="post-description">
               {{ .Post.Frontmatter.Description }}
@@ -76,7 +76,7 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    {{ template "Body" .Config }}
+    {{ template "body" .Config }}
   </body>
 </html>
 {{ end }}
