@@ -6,9 +6,6 @@ description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, allowing us to take advantage of the full range of
   services that Amazon Web Services offers.
 thumbnail: /assets/uploads/2022.jpg
-redirect_from:
-  - /vida/2022/01/16/2022-ano-novo-grandes-mudancas.html
-  - /2022-ano-novo-grandes-mudancas
 ---
 
 Since 2020, I have officially had this blog, but for a few years, I had written various articles related to technology, and when I launched this site with Jekyll, I posted them here and today I have a space, a small portion of the internet to bring thoughts and ideas that may be ridiculous, but that manage to convey a bit of knowledge to those who are still trying to understand what programming is.

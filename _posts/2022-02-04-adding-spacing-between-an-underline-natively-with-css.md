@@ -4,8 +4,6 @@ date: 2022-02-11 12:00:00
 category: Development__#e74c3c
 thumbnail: /assets/uploads/text-underline-offset.png
 description: And no, it's not with border-bottom
-redirect_from:
-  - /colocando-espaçamento-entre-um-underline-nativamente-com-css
 ---
 In search of a way to add spacing between a link and its underline, I was going down the path of using a border-bottom which, despite being an easy and interesting solution, can lead to texts like this:
 

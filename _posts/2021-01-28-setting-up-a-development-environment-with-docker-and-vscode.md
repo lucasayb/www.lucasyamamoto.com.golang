@@ -6,9 +6,6 @@ description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, allowing us to take advantage of the full range of
   services that Amazon Web Services offers.
 thumbnail: /assets/uploads/2021-01-28-montando-um-ambiente-de-desenvolvimento-com-docker-thumbnail.jpg
-redirect_from:
-  - /development/2021/01/22/setting-up-a-development-environment-with-docker-and-vscode.html
-  - /montando-um-ambiente-de-desenvolvimento-com-docker-e-vscode
 ---
 When working with various technologies and having limited space on your computer, we need to resort to more practical alternatives so that we can have something minimally viable, in terms of agile deliveries, and in an economical way.
 
