@@ -5,9 +5,6 @@ category: Development__#e74c3c
 description: Nowadays, many companies that create their own websites to
   establish a presence on the web decide not to give up their ERP
 thumbnail: /assets/uploads/integracoes.jpg
-redirect_from:
-  - /dicas/2018/06/21/7-dicas-para-a-integracao-perfeita.html
-  - /7-dicas-para-a-integracao-perfeita
 ---
 Nowadays, many companies that create their own websites to establish a presence on the web decide not to give up their ERP. In cases like these, it's necessary to develop an integration, a micro-application responsible for enabling the web system to "communicate" with the company's own application. At Codeby, we have encountered many successes and failures, and we are here to share them with you, possibly revealing the "formula" for integration. Check it out!
 

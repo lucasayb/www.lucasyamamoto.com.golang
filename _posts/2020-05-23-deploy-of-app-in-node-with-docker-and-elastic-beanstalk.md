@@ -6,10 +6,6 @@ description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, and with that, we were able to enjoy the whole range of
   services that Amazon Web Services has to offer.
 thumbnail: /assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-thumbnail.jpg
-redirect_from:
-  - /devops/2020/05/23/deploy-of-app-in-node-with-docker-and-elastic-beanstalk.html
-  - /devops/2020/05/23/deploy-de-app-em-node-com-docker-e-elastic-beanstalk.html
-  - /deploy-de-app-em-node-com-docker-e-elastic-beanstalk
 ---
 , we currently use the following:
 
