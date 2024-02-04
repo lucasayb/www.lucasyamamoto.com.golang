@@ -3,7 +3,6 @@ title: Smart Talk at CodeBy
 date: 2019-04-04 12:20:30 -0300
 category: Videos__#3498db
 thumbnail: /assets/uploads/screen-shot-2022-02-03-at-03.46.00.png
-color: "#3498db"
 description: I recently participated in a Smart Talk with Fellipe Guimarães, CEO
   of CodeBy. Check it out now as we had a really cool chat!
 redirect_from:

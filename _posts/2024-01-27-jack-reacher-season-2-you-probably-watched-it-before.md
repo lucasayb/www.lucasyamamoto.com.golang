@@ -3,8 +3,7 @@ title: "Jack Reacher Season 2: You probably watched it before"
 date: 2024-01-27 07:06:52
 description: This post contains spoilers from Jack Reacher Season 2.
 thumbnail: /assets/uploads/dall·e-2024-01-27-19.11.40-create-a-digital-art-piece-representing-a-tv-screen-showing-the-second-season-of-the-jack-reacher-tv-show-with-negative-reviews.-the-screen-should-be-2-1-.png
-category: TV Shows
-color: "#6ab04c"
+category: TV Shows__#6ab04c
 ---
 I didn’t read Jack Reacher’s series of books, but I saw the movies and the series. What I can say for sure is that this second season looks like something that I watched so many times. The first season was intriguing and had unique attributes that differentiated from any other series nowadays. The storyline was concise, the violence was brutal but realistic and necessary, and in every aspect of the season, you could understand why Reacher was such a feared but fair man and why the franchise is called Jack Reacher (at least the cinematographic one). When you watch either the movies or the TV show, you expect not a great storyline but action and fights.
 

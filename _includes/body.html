@@ -1,4 +1,5 @@
 {{define "body" }}
+
 <script type="text/javascript">
   (function() {
     window.__onThemeChange = function() {};
@@ -41,6 +42,18 @@
   s.src = 'https://lucas-yamamoto.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
+  })();
+</script>
+<script type="text/javascript">
+  (function() {
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('[data-category]').forEach(function(categoryPill) {
+        const [category, color] = categoryPill.getAttribute('data-category').split("__")
+        categoryPill.innerHTML = category
+        categoryPill.setAttribute("style", "background-color: " + color)
+        console.log(categoryPill.getAttribute('data-category'))
+      })
+    })
   })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

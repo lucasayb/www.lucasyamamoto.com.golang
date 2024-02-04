@@ -10,7 +10,6 @@ redirect_from:
   - /devops/2020/05/23/migrating-jekyll-blog-from-github-to-aws.html
   - /devops/2021/01/21/migrating-jekyll-blog-from-github-to-aws.html
   - /migrando-blog-em-jekyll-do-github-para-aws
-color: "#9b59b6"
 ---
 I've been a while without posting on my blog, but as I'm seeking AWS certification, and decided to use AWS wherever I can, including my blog!
 

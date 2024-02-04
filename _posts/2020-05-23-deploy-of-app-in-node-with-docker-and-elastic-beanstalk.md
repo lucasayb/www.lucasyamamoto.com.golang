@@ -10,7 +10,6 @@ redirect_from:
   - /devops/2020/05/23/deploy-of-app-in-node-with-docker-and-elastic-beanstalk.html
   - /devops/2020/05/23/deploy-de-app-em-node-com-docker-e-elastic-beanstalk.html
   - /deploy-de-app-em-node-com-docker-e-elastic-beanstalk
-color: "#9b59b6"
 ---
 , we currently use the following:
 

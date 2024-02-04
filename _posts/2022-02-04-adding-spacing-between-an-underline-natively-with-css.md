@@ -3,7 +3,6 @@ title: Adding Spacing to an Underline Natively with CSS
 date: 2022-02-11 12:00:00
 category: Development__#e74c3c
 thumbnail: /assets/uploads/text-underline-offset.png
-color: "#e74c3c"
 description: And no, it's not with border-bottom
 redirect_from:
   - /colocando-espaçamento-entre-um-underline-nativamente-com-css

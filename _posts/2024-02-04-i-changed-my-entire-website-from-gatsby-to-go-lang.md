@@ -4,8 +4,7 @@ date: 2024-02-04 12:09:18
 description: Why did I learned a bit of Go and decided to create my own SSG to
   use on my blog
 thumbnail: /assets/uploads/dall·e-2024-02-04-12.42.59-design-an-eye-catching-800x400-thumbnail-for-an-article-discussing-the-go-programming-language.-the-image-should-feature-a-stylized-cartoonish-gopher.webp
-category: Development
-color: "#e74c3c"
+category: Development__#e74c3c
 ---
 Right now, I'm recovering from surgery at my dear friend Victor Almeida's home. While doing so, and being away from my work, I was really bored in the past couple of days. Because of this, I decided to do something: I realized that my website needed an upgrade. The main reason I have this website/blog is because I like to experience new things and conduct tests, and there's nothing better than my own controlled environment for that.
 

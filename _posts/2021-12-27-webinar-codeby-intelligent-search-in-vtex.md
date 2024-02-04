@@ -7,8 +7,6 @@ thumbnail: /assets/uploads/screen-shot-2022-02-03-at-03.49.11.png
 redirect_from:
   - /videos/2021/12/27/webinar-codeby-intelligent-search-in-vtex.html
   - /webinar-codeby-regionalizacao-com-vtex
-tags: videos talk webinar
-categories: videos
 description: I participated in a Webinar where we discussed Intelligent Search
   and its applications in the e-commerce universe, citing examples like Amazon
   and how this feature currently works in VTEX. Find out more about the topic!

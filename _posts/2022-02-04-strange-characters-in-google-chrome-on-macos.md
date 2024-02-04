@@ -5,7 +5,6 @@ category: Tips__#1abc9c
 description: Strange characters in Google Chrome on MacOS appeared out of
   nowhere and here's why
 thumbnail: /assets/uploads/chrome-bizarre-thumbnail.png
-color: "#1abc9c"
 redirect_from:
   - /caracteres-estranhos-no-google-chrome-no-macos
 ---

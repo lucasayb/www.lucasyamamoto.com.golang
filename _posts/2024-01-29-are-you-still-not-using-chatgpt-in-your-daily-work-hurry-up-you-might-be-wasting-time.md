@@ -4,7 +4,7 @@ title: Are you still not using ChatGPT in your daily work? Hurry up, you might
 date: 2024-01-29 04:33:22
 description: The AI Boom era is here, and we are already late
 thumbnail: /assets/uploads/dall·e-2024-01-29-04.42.08-a-futuristic-digital-landscape-to-symbolize-the-ai-boom.-in-the-center-a-large-glowing-digital-brain-represents-chatgpt-with-intricate-circuits-an.png
-category: Tips
+category: Tips__#1abc9c
 ---
 Chat GPT was launched on November 30, 2022, developed by OpenAI, and is currently the most advanced Chatbot available. Although it may appear to have its own IQ and conscience, it is actually a language model that was trained using a vast database of texts and data. To put it into perspective, the first version, GPT-1, was trained with 4.5GB of text from 7000 unpublished books of various genres. The latest version, GPT-3, was trained with over 570GB of content, which is almost 130 times larger than the first version. It's worth noting that ChatGPT uses an even more advanced version of GPT-3 called GPT-3.5.
 

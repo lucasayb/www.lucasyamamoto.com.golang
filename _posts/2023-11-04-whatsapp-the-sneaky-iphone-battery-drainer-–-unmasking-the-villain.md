@@ -4,8 +4,7 @@ date: 2023-11-04 01:21:27
 description: I investigated my new iPhone 14 Pro's rapid battery drain. It's
   only a month old. WhatsApp was the reason.
 thumbnail: /assets/uploads/whatsapp-iphone-battery-killer.png
-category: Tips
-color: "#1abc9c"
+category: Tips__#1abc9c
 ---
 
 Yesterday, I decided to investigate my rapid battery drain issue with my new iPhone 14 Pro, which I've owned for just one month. To get to the bottom of it, I navigated to "Settings" > "Battery" and captured screenshots from two different days for comparison.

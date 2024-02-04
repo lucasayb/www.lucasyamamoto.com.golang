@@ -4,8 +4,7 @@ date: 2023-01-25 09:00:58
 description: What is already good can be even more impressive with the use of
   the following plugins to further extend the power of this tool.
 thumbnail: /assets/uploads/gatsby-plugins-the-8-essentials-for-a-perfect-blog.png
-category: Tips
-color: "#1abc9c"
+category: Tips__#1abc9c
 ---
 Gatsby is a powerful tool. Combining the capacity of React with static website generation not only makes an incredibly satisfying technology to develop with but also helps you build a stupidly fast website.
 
