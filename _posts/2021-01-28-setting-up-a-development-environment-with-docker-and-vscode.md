@@ -1,12 +1,14 @@
 ---
+title: Setting Up a Development Environment with Docker and VSCode
+date: 2021-01-22 17:44:02 -0300
+category: Development__#e74c3c
+description: Recently at CodeBy, we migrated our apps and deployments from
+  Digital Ocean to AWS, allowing us to take advantage of the full range of
+  services that Amazon Web Services offers.
+thumbnail: /assets/uploads/2021-01-28-montando-um-ambiente-de-desenvolvimento-com-docker-thumbnail.jpg
 redirect_from:
   - /development/2021/01/22/setting-up-a-development-environment-with-docker-and-vscode.html
   - /montando-um-ambiente-de-desenvolvimento-com-docker-e-vscode
-title: "Setting Up a Development Environment with Docker and VSCode"
-date: 2021-01-22 17:44:02 -0300
-category: Development
-thumbnail: /assets/uploads/2021-01-28-montando-um-ambiente-de-desenvolvimento-com-docker-thumbnail.jpg
-description: Recently at CodeBy, we migrated our apps and deployments from Digital Ocean to AWS, allowing us to take advantage of the full range of services that Amazon Web Services offers.
 color: "#e74c3c"
 ---
 When working with various technologies and having limited space on your computer, we need to resort to more practical alternatives so that we can have something minimally viable, in terms of agile deliveries, and in an economical way.
@@ -25,7 +27,7 @@ I have been working with Docker for a while now, as it is currently how I set up
 
 Installing Docker on Mac is pretty straightforward, to be honest. You just need to download it from Docker Hub.
 
-[https://hub.docker.com/editions/community/docker-ce-desktop-mac/](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
+<https://hub.docker.com/editions/community/docker-ce-desktop-mac/>
 
 And follow the famous process of dragging and dropping the app icon to your Mac OS `applications` folder.
 
@@ -39,7 +41,7 @@ Pretty easy, right?
 
 ### Installing Docker on Windows
 
-I'm not a big fan of Windows, but I have to admit that the installation process on it is as easy as on Mac. Just download Docker Desktop from Docker Hub [https://hub.docker.com/editions/community/docker-ce-desktop-windows/](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) and run the executable. Follow the installer's instructions and, according to Docker's documentation, make sure the "Enable Hyper-V Windows Features" option is checked (honestly, I don't know what this option does).
+I'm not a big fan of Windows, but I have to admit that the installation process on it is as easy as on Mac. Just download Docker Desktop from Docker Hub <https://hub.docker.com/editions/community/docker-ce-desktop-windows/> and run the executable. Follow the installer's instructions and, according to Docker's documentation, make sure the "Enable Hyper-V Windows Features" option is checked (honestly, I don't know what this option does).
 
 > If your administrator account is different from your user account, you must add the user to the **docker-users** group. Run **Computer Management** as administrator and navigate to **Local Users and Groups** > **Groups** > **docker-users**. Right-click to add the user to the group. Log out and log in again for the changes to take effect.
 
