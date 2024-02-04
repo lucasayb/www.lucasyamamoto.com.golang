@@ -5,9 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    var PostPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var image = entry.getIn(['data', 'thumbnail']);
+        var category = entry.getIn(['data', 'category']);
+        var color = null
+        var categoryName = null
+        var splittedCategory = category.split("__") || []
+        if (splittedCategory.length) {
+          categoryName = splittedCategory[0]
+          color = splittedCategory[1]
+        }
+        var bg = this.props.getAsset(image);
+        return h('div', {},
+          h('h1', {}, entry.getIn(['data', 'title'])),
+          h('img', {src: bg.toString()}),
+          h('span', {
+            "className": "category-pill", 
+            "style": { "backgroundColor": (color || "#fff") }
+          }, (categoryName || "")),
+          h('div', {"className": "text"}, this.props.widgetFor('body'))
+        );
+      }
+    });
+  
+    CMS.registerPreviewStyle("/admin/styles.css");
+    CMS.registerPreviewTemplate("posts", PostPreview);
+  </script>
 </body>
 </html>
