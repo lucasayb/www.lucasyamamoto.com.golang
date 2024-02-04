@@ -146,7 +146,6 @@ func parseMarkdown(title string, rawMarkdown []byte) string {
 	extensions := markdownParser.CommonExtensions | markdownParser.AutoHeadingIDs
 	p := markdownParser.NewWithExtensions(extensions)
 	markdownPayload := make([]byte, 0)
-	markdownPayload = append(markdownPayload, []byte(strings.Join([]string{"#", title}, " "))...)
 	markdownPayload = append(markdownPayload, '\n')
 	markdownPayload = append(markdownPayload, rawMarkdown...)
 	html := markdown.ToHTML(markdownPayload, p, nil)
