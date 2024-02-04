@@ -23,13 +23,37 @@ collections:
         }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-      - { label: "Category",
+      - {
+          label: "Category",
           name: "category",
-          widget: "relation",
-          collection: "categories",
-          search_fields: ["name"],
-          value_field: "name",
-          display_fields: ["name"]
+          widget: "select",
+          options:
+            [
+              "Development",
+              "DevOps",
+              "Tips",
+              "Experience",
+              "Project Management",
+              "Life",
+              "Videos",
+              "TV Shows",
+            ],
+        }
+      - {
+          label: "Color",
+          name: "color",
+          widget: "select",
+          options:
+            [
+              { label: "Development", value: "#e74c3c" },
+              { label: "DevOps", value: "#9b59b6" },
+              { label: "Tips", value: "#1abc9c" },
+              { label: "Experience", value: "#341f97" },
+              { label: "Project Management", value: "#B53471" },
+              { label: "Life", value: "#6ab04c" },
+              { label: "Videos", value: "#3498db" },
+              { label: "TV Shows", value: "#7f0b0b" },
+            ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
@@ -48,19 +72,4 @@ collections:
           format: "YYYY-MM-DD hh:mm:ss",
         }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
-  
-  - name: "categories"
-    label: "Categories"
-    folder: "_categories"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - { label: "Name", name: "name", widget: "string" }
-      - {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD hh:mm:ss",
-        } # The fields for each document, usually in front matter
-      - { label: "Color", name: "color", widget: "color", allowInput: true }
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
