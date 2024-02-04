@@ -41,13 +41,11 @@ I must say that I likely lost more features than I gained with this change. Not 
 
 ![It shows 65% as performance, 88% for accebility, 100 for best practices and 99 for SEO](/assets/uploads/screenshot-2024-02-04-at-11.15.47.jpg "Performance before with Gatsby")
 
-
-
 #### SSG built with Go
 
 ![It shows 57% for performance, 71% for accessibility, 96% for best practices and 91 for SEO](/assets/uploads/screenshot-2024-02-04-at-11.15.11.jpg "Performance with the SSG built using Go")
 
-It’s nice to say that I’m losing here because I didn’t build almost anything that Gatsby has implemented by default, like the [blur-up effect, which first loads the image in much lower quality, but blurred, and then shows it fully when the image is already loaded](https://gracious-jennings-0e5ca9.netlify.app). This aims to reduce the FCP and the CLS. Also, SEO and best practices need to be improved and will be improved.
+It’s nice to say that I’m losing here because I didn’t build almost anything that Gatsby has implemented by default, like the [blur-up effect, which first loads the image in much lower quality, but blurred, and then shows it fully when the image is already loaded.](https://gracious-jennings-0e5ca9.netlify.app) This aims to reduce the FCP and the CLS. Also, SEO and best practices need to be improved and will be improved.
 
 ### Search
 
@@ -103,7 +101,6 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 	fmt.Println("Home generated successfully")
 	return rendered.String()
 }
-
 ```
 
 If you look at it carefully, I just grab the information from posts and create a few different index pages so that I can have pagination.
@@ -132,7 +129,6 @@ And in the layout `home.html`, I just render this information:
   </body>
 </html>
 {{ end }}
-
 ```
 
 Every single post on this site is currently in the `_posts` folder of the project. I took the same idea that I liked from Jekyll. I could have just created another method called `GenerateAppleShortcuts` that would do the same thing as `GenerateHome` but for another page, but I didn’t think it would be as modular as I wanted. I’ll explain later why I just didn’t do it anyway.
