@@ -11,6 +11,16 @@
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
+    var PagePreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        return h('div', {},
+          h('h1', {}, entry.getIn(['data', 'title'])),
+          h('div', {"className": "text"}, this.props.widgetFor('body'))
+        );
+      }
+    });
+  
     var CategoryPreview = createClass({
       render: function() {
         var entry = this.props.entry;
@@ -52,6 +62,7 @@
   
     CMS.registerPreviewStyle("/admin/styles.css");
     CMS.registerPreviewTemplate("posts", PostPreview);
+    CMS.registerPreviewTemplate("pages", PagePreview);
     CMS.registerPreviewTemplate("categories", CategoryPreview);
   </script>
 </body>
