@@ -1,29 +1,31 @@
 ---
+title: Deploy of App in Node with Docker and Elastic Beanstalk
+date: 2020-05-23 15:53:42 -0300
+category: DevOps__#9b59b6
+description: Recently at CodeBy, we migrated our apps and deployments from
+  Digital Ocean to AWS, and with that, we were able to enjoy the whole range of
+  services that Amazon Web Services has to offer.
+thumbnail: /assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-thumbnail.jpg
 redirect_from:
   - /devops/2020/05/23/deploy-of-app-in-node-with-docker-and-elastic-beanstalk.html
   - /devops/2020/05/23/deploy-de-app-em-node-com-docker-e-elastic-beanstalk.html
   - /deploy-de-app-em-node-com-docker-e-elastic-beanstalk
-title: "Deploy of App in Node with Docker and Elastic Beanstalk"
-date: 2020-05-23 15:53:42 -0300
-category: DevOps
-thumbnail: /assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-thumbnail.jpg
-description: Recently at CodeBy, we migrated our apps and deployments from Digital Ocean to AWS, and with that, we were able to enjoy the whole range of services that Amazon Web Services has to offer.
 color: "#9b59b6"
 ---
 , we currently use the following:
 
-- Elastic Container Registry
-- Code Pipeline
-- Elastic Beanstalk
-- S3
+* Elastic Container Registry
+* Code Pipeline
+* Elastic Beanstalk
+* S3
 
 While we use S3 to serve media such as videos or images and for hosting static websites, the others are used to build our deployment process. Today, I would like to detail how we set it up.
 
 ### Requirements
 
-- Knowledge in Git and GitHub.
-- A Node application (we will use a simple application in this tutorial).
-- Basic knowledge in Docker and creating a `Dockerfile`.
+* Knowledge in Git and GitHub.
+* A Node application (we will use a simple application in this tutorial).
+* Basic knowledge in Docker and creating a `Dockerfile`.
 
 ## 1. Create a repository on GitHub
 
@@ -33,7 +35,7 @@ On GitHub, create a repository with the required information:
 
 ![Deploy de app em Node com Docker e Elastic Beanstalk/Screen_Shot_2020-05-23_at_16.24.42.png](/assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-16.24.42.png)
 
-With the repository created, let's put our simple application in it so that we can use it in our process. To facilitate, I made the repository of this app public on GitHub. You can access it here: [https://github.com/lucasayb/aplicacao-node-simples](https://github.com/lucasayb/aplicacao-node-simples)
+With the repository created, let's put our simple application in it so that we can use it in our process. To facilitate, I made the repository of this app public on GitHub. You can access it here: <https://github.com/lucasayb/aplicacao-node-simples>
 
 ![Deploy de app em Node com Docker e Elastic Beanstalk/Screen_Shot_2020-05-23_at_16.30.31.png](/assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-16.30.31.png)
 
@@ -59,13 +61,13 @@ CMD yarn start
 
 ### Explaining the steps of our `Dockerfile`
 
-- `FROM node:10.9.0`: Here we are defining which image will be the base of our `Dockerfile`. As our app is in Node, we are defining that the base of the image we are creating is `node` version `10.9.0`, as it has all the necessary libs to run our current application.
-- `WORKDIR /var/www/app`: We are defining where our application will be within our Docker container. Keeping in mind that Docker creates containers based on images, within our container created using our image, our application will be available at `/var/www/app`.
-- `COPY package.json yarn.lock ./`: We are copying the `package.json` and `yarn.lock` files just so we can install our application's modules before copying it entirely. The purpose of this practice is to make use of Docker's cache, which executes the respective step only if the files used in it have been changed, and to make an efficient image with a low build time.
-- `RUN yarn`: here we install our libs defined in `package.json` and `yarn.lock`.
-- `COPY . .`: with our libs installed, we copy the rest of our application inside the image.
-- `EXPOSE 3000`: here we are just defining that we want to expose port `3000`, since it is on this port that our application will be running. `EXPOSE` actually does not serve to publish the port, but rather to serve as documentation so that the developer can know which port should indeed be published.
-- `CMD yarn start`: this is the command that will run the container of our application. I defined in the `scripts` of `package.json` that the `start` command will execute `node ./server.js`.
+* `FROM node:10.9.0`: Here we are defining which image will be the base of our `Dockerfile`. As our app is in Node, we are defining that the base of the image we are creating is `node` version `10.9.0`, as it has all the necessary libs to run our current application.
+* `WORKDIR /var/www/app`: We are defining where our application will be within our Docker container. Keeping in mind that Docker creates containers based on images, within our container created using our image, our application will be available at `/var/www/app`.
+* `COPY package.json yarn.lock ./`: We are copying the `package.json` and `yarn.lock` files just so we can install our application's modules before copying it entirely. The purpose of this practice is to make use of Docker's cache, which executes the respective step only if the files used in it have been changed, and to make an efficient image with a low build time.
+* `RUN yarn`: here we install our libs defined in `package.json` and `yarn.lock`.
+* `COPY . .`: with our libs installed, we copy the rest of our application inside the image.
+* `EXPOSE 3000`: here we are just defining that we want to expose port `3000`, since it is on this port that our application will be running. `EXPOSE` actually does not serve to publish the port, but rather to serve as documentation so that the developer can know which port should indeed be published.
+* `CMD yarn start`: this is the command that will run the container of our application. I defined in the `scripts` of `package.json` that the `start` command will execute `node ./server.js`.
 
 With this done, we can test the build of our application locally simply by running the following command:
 
@@ -125,9 +127,7 @@ $ node ./server.js
 Server running at port 3000
 ```
 
-Accessing [http://localhost:3000/](http://localhost:3000/), we will see our application running on our machine :)
-
-
+Accessing <http://localhost:3000/>, we will see our application running on our machine :)
 
 ![Deploy de app em Node com Docker e Elastic Beanstalk/Screen_Shot_2020-05-23_at_17.03.29.png](/assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-17.03.29.png)
 
@@ -331,10 +331,10 @@ In the **Logs** section, we will keep the selected configurations and to finish,
 
 Back in the CodePipeline build step, in the **Environment variables** section, insert the following variables:
 
-- `AWS_DEFAULT_REGION`: your AWS region. In my case, `us-east-1`
-- `AWS_ACCOUNT_ID`: your account id. It is present in your URL generated by the Elastic Container Registry
-- `IMAGE_REPO_NAME`: the name of your repository created in the Elastic Container Registry. In my case, **aplicacao-node-simples**.
-- `IMAGE_TAG`: the tag of your image. We can leave `latest` as the standard.
+* `AWS_DEFAULT_REGION`: your AWS region. In my case, `us-east-1`
+* `AWS_ACCOUNT_ID`: your account id. It is present in your URL generated by the Elastic Container Registry
+* `IMAGE_REPO_NAME`: the name of your repository created in the Elastic Container Registry. In my case, **aplicacao-node-simples**.
+* `IMAGE_TAG`: the tag of your image. We can leave `latest` as the standard.
 
 You should have something like the following:
 
