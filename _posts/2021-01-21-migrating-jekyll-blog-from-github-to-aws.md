@@ -1,16 +1,17 @@
 ---
-redirect_from: 
+title: Migrating Jekyll Blog from GitHub to AWS
+date: 2021-01-21 15:53:42 -0300
+category: Development__#e74c3c
+description: Recently at CodeBy, we migrated our apps and deployments from
+  Digital Ocean to AWS, thus benefiting from the wide range of services that
+  Amazon Web Services offers.
+thumbnail: /assets/uploads/2021-01-21-migrando-blog-em-jekyll-do-github-para-aws-thumbnail.jpg
+redirect_from:
   - /devops/2020/05/23/migrating-jekyll-blog-from-github-to-aws.html
   - /devops/2021/01/21/migrating-jekyll-blog-from-github-to-aws.html
   - /migrando-blog-em-jekyll-do-github-para-aws
-title: "Migrating Jekyll Blog from GitHub to AWS"
-date: 2021-01-21 15:53:42 -0300
-category: DevOps
-thumbnail: /assets/uploads/2021-01-21-migrando-blog-em-jekyll-do-github-para-aws-thumbnail.jpg
-description: Recently at CodeBy, we migrated our apps and deployments from Digital Ocean to AWS, thus benefiting from the wide range of services that Amazon Web Services offers.
 color: "#9b59b6"
 ---
-
 I've been a while without posting on my blog, but as I'm seeking AWS certification, and decided to use AWS wherever I can, including my blog!
 
 Today, I want to migrate my Jekyll blog to AWS, more specifically, to S3.
@@ -110,12 +111,12 @@ The first piece of information is the "Project name."
 
 Then, follow these instructions to configure the build environment:
 
-- Operating system: Ubuntu
-- Runtime(s): Standard
-- Image: aws/codebuild/standard:3.0
-- Image version: Always use the latest image for this runtime version
-- Environment type: Linux
-- Enable the privileged access option, so we can run commands as root.
+* Operating system: Ubuntu
+* Runtime(s): Standard
+* Image: aws/codebuild/standard:3.0
+* Image version: Always use the latest image for this runtime version
+* Environment type: Linux
+* Enable the privileged access option, so we can run commands as root.
 
 And finally, click on "Create project"
 
@@ -190,8 +191,8 @@ phases:
 
 Here in `phases`, we have two parts.
 
-- `install` is responsible for the build environment setup process, installing `bundler`, as it is the package manager for Ruby, the language in which Jekyll is written, and we run `bundle install` so we can install the other packages (gems) in our `Gemfile`. This way, we will have Jekyll correctly installed and configured.
-- `build` is the process that generates the static files. These files are the ones accessed by our users and the ones stored in S3
+* `install` is responsible for the build environment setup process, installing `bundler`, as it is the package manager for Ruby, the language in which Jekyll is written, and we run `bundle install` so we can install the other packages (gems) in our `Gemfile`. This way, we will have Jekyll correctly installed and configured.
+* `build` is the process that generates the static files. These files are the ones accessed by our users and the ones stored in S3
 
 .
 
