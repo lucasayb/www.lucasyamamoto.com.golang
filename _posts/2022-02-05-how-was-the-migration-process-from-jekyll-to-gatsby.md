@@ -1,9 +1,10 @@
 ---
 title: How was the migration process from Jekyll to Gatsby?
 date: 2022-02-04 10:35:19
-description: I'll describe a bit of my journey and the reasons for migrating technologies from a Jekyll blog to Gatsby
+category: Experience__#341f97
+description: I'll describe a bit of my journey and the reasons for migrating
+  technologies from a Jekyll blog to Gatsby
 thumbnail: /assets/uploads/gatsby-thumbnail.png
-category: Experience
 ---
 Ever since I made my blog with Jekyll, I loved writing in markdown. But I confess that the whole process was very manual and sometimes ideas for articles quickly disappeared just by thinking about the entire flow and strategy needed to publish a simple post. Until yesterday, I was using my blog with Jekyll with the Minima theme, which is Jekyll's base theme. It's relatively customizable and, for a blog, it's pretty, in addition to having many features since it's a theme made by a large community.
 
@@ -79,7 +80,7 @@ If you look closely, I migrated the format of the URLs.
 
 As I only had 8 posts, I ended up doing the process manually, but I could have written a script for it.
 
-```markdown
+```yaml
 ---
 redirect_from:
   - /dicas/2018/06/21/7-dicas-para-a-integracao-perfeita.html
