@@ -11,6 +11,20 @@
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
+    var CategoryPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var categoryName = entry.getIn(['data', 'name']);
+        var color = entry.getIn(['data', 'color']);
+        return h('div', {},
+          h('span', {
+            "className": "category-pill", 
+            "style": { "backgroundColor": (color || "#fff") }
+          }, (categoryName || "")),
+        );
+      }
+    });
+  
     var PostPreview = createClass({
       render: function() {
         var entry = this.props.entry;
@@ -38,6 +52,7 @@
   
     CMS.registerPreviewStyle("/admin/styles.css");
     CMS.registerPreviewTemplate("posts", PostPreview);
+    CMS.registerPreviewTemplate("categories", CategoryPreview);
   </script>
 </body>
 </html>
