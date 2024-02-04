@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: lucasayb/lucasyamamoto.gatsbyjs
+  repo: lucasayb/lucasyamamoto.golang
   branch: main
-  site_domain: lucasyamamoto.netlify.com
+  site_domain: lucasyamamoto-golang.netlify.app
 
 media_folder: "static/assets/uploads"
 public_folder: "/assets/uploads"
