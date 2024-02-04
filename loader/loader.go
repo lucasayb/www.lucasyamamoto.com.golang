@@ -50,7 +50,11 @@ func Homepager(homepageData HomepageData) bytes.Buffer {
 }
 
 func Post(postData PostData) bytes.Buffer {
-	tmpl := load("_layouts/post.html")
+	layout := postData.Post.Frontmatter.Layout
+	if layout == "" {
+		layout = "post"
+	}
+	tmpl := load("_layouts/" + postData.Post.Frontmatter.Layout + ".html")
 	var rendered bytes.Buffer
 	err := tmpl.ExecuteTemplate(&rendered, "Post", postData)
 	if err != nil {
