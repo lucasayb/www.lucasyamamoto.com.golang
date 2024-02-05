@@ -6,23 +6,14 @@
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
     <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
     <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
-    <meta
-      property="og:description"
-      content="{{ .Post.Frontmatter.Description }}"
-    />
+    <meta property="og:description" content="{{ .Post.Frontmatter.Description }}" />
     <meta property="og:image" content="{{ .Post.Frontmatter.Thumbnail }}" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image:src"
-      content="{{ .Post.Frontmatter.Thumbnail }}"
-    />
+    <meta name="twitter:image:src" content="/assets/uploads/default.png" />
     <meta name="twitter:creator" content="{{ .Config.TwitterUsername }}" />
     <meta name="twitter:title" content="{{ .Post.Frontmatter.Title }}" />
-    <meta
-      name="twitter:description"
-      content="{{ .Post.Frontmatter.Description }}"
-    />
+    <meta name="twitter:description" content="{{ .Post.Frontmatter.Description }}" />
   </head>
   <body class="dark">
     {{ template "header" }}

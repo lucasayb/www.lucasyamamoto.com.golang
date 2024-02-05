@@ -4,6 +4,16 @@
   <head>
     {{ template "head" .Config }}
     <title>{{ .Config.Title }}</title>
+    <meta name="description" content="" />
+    <meta property="og:title" content="{{ .Config.Title }}" />
+    <meta property="og:description" content="{{ .Config.Description }}" />
+    <meta property="og:image" content="/assets/uploads/default.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="/assets/uploads/default.png" />
+    <meta name="twitter:creator" content="{{ .Config.TwitterUsername }}" />
+    <meta name="twitter:title" content="{{ .Config.Title }}" />
+    <meta name="twitter:description" content="{{ .Config.Description }}" />
   </head>
   <body class="dark">
     {{ template "header" }}
