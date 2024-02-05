@@ -50,6 +50,7 @@ type Config struct {
 	LinkedinUsername  string `yaml:"linkedin_username"`
 	InstagramUsername string `yaml:"instagram_username"`
 	DisqusShortname   string `yaml:"disqus_shortname"`
+	RobotsTXT         string `yaml:"robots_txt"`
 }
 
 func ParseMultiple(config Config, dirName string) ([]Post, Pages) {

@@ -91,10 +91,10 @@ func GeneratePost(config parser.Config, post parser.Post, output string) {
 	createFile(output, post.Slug, content.Bytes())
 }
 
-func GenerateAssets(output string) {
+func GenerateAssets(config parser.Config, output string) {
 	createFolder(output)
 	sourceDir := "static"
-	copyFiles(sourceDir, output, sourceDir, output, "")
+	copyFiles(config, sourceDir, output, sourceDir, output, "")
 }
 
 func GenerateJSON(posts []parser.Post) {
@@ -173,7 +173,7 @@ func sortPosts(config parser.Config, posts []parser.Post) []parser.Post {
 	return posts
 }
 
-func copyFiles(sourceDir string, outputDir string, baseSourceDir string, baseOutputDir string, baseDir string) {
+func copyFiles(config parser.Config, sourceDir string, outputDir string, baseSourceDir string, baseOutputDir string, baseDir string) {
 	entries, err := os.ReadDir(sourceDir)
 	if err != nil {
 		log.Fatal(err)
@@ -205,12 +205,20 @@ func copyFiles(sourceDir string, outputDir string, baseSourceDir string, baseOut
 		filePath = filepath.Join(absSourceDir, fileName)
 		if !entry.IsDir() {
 			file, err := os.ReadFile(filePath)
+
 			if err != nil {
 				log.Fatal(err)
 			}
+			if fileName == "robots.txt" {
+				robotsTXT := config.RobotsTXT
+				if robotsTXT != "" {
+					robotsTXT = strings.ReplaceAll(robotsTXT, "\\n", "\n")
+					file = []byte(robotsTXT)
+				}
+			}
 			os.WriteFile(filepath.Join(absOutputDir, fileName), file, 0666)
 		} else {
-			copyFiles(filePath, outputDir, baseSourceDir, baseOutputDir, baseDir)
+			copyFiles(config, filePath, outputDir, baseSourceDir, baseOutputDir, baseDir)
 		}
 	}
 }

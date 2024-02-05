@@ -13,3 +13,6 @@ instagram_username:  lucasyamamoto1997
 disqus_shortname: lucas-yamamoto
 
 per_page: 10
+
+robots_txt: >-
+  User-agent: *\nDisallow: /search\n\nSitemap: https://www.lucasyamamoto.com/sitemap.xml

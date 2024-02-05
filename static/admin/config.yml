@@ -84,3 +84,4 @@ collections:
           - {label: "Instagram Username", name: "instagram_username", widget: "string"}
           - {label: "Disqus Shortname", name: "disqus_shortname", widget: "string"}
           - {label: "Per Page", name: "per_page", widget: "number"}
+          - {label: "robots.txt", name: "robots_txt", widget: "text"}
