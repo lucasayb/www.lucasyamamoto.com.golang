@@ -16,6 +16,7 @@
     <meta name="twitter:description" content="{{ .Post.Frontmatter.Description }}" />
   </head>
   <body class="dark">
+    {{ template "body_start" .Config }}
     {{ template "header" }}
     <main class="content">
       <div class="container">
@@ -27,7 +28,7 @@
         </section>
       </div>
     </main>
-    {{ template "body" .Config }}
+    {{ template "body_end" .Config }}
   </body>
 </html>
 {{ end }}

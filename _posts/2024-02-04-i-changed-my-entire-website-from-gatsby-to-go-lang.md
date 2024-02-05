@@ -117,6 +117,7 @@ And in the layout `home.html`, I just render this information:
     <title>{{ .Config.Title }}</title>
   </head>
   <body class="dark">
+    {{ template "body_start" .Config }}
     {{ template "header" }}
     <main class="content">
       <div class="container">
@@ -126,7 +127,7 @@ And in the layout `home.html`, I just render this information:
         {{ template "pagination" . }}
       </div>
     </main>
-    {{ template "body" .Config }}
+    {{ template "body_end" .Config }}
   </body>
 </html>
 {{ end }}

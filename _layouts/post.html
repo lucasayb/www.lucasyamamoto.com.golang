@@ -25,6 +25,7 @@
     />
   </head>
   <body class="dark">
+    {{ template "body_start" .Config }}
     {{ template "header" }}
     <main class="content">
       <div class="container">
@@ -76,7 +77,7 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    {{ template "body" .Config }}
+    {{ template "body_end" .Config }}
   </body>
 </html>
 {{ end }}
