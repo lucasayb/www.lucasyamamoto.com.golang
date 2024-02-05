@@ -5,12 +5,12 @@
     {{ template "category_pill" .Frontmatter }}
   </div>
   
-  <a class="post-item-link" href="/{{ .Slug }}.html">
+  <a title="Read more of '{{ .Frontmatter.Title }}'" class="post-item-link" href="/{{ .Slug }}.html">
     <div class="post-item-title">{{ .Frontmatter.Title }}</div>
   </a>
   <p class="post-item-description">{{ .Frontmatter.Description }}</p>
 
-  <a class="post-item-link" href="/{{ .Slug }}.html">
+  <a title="Read more of '{{ .Frontmatter.Title }}'" class="post-item-link" href="/{{ .Slug }}.html">
     <div class="post-item-thumbnail" style="position: relative; overflow: hidden;">
       <img aria-hidden="true" src="{{ .Frontmatter.Thumbnail }}" alt="" />
     </div>
