@@ -19,7 +19,7 @@
 /colocando-espaçamento-entre-um-underline-nativamente-com-css /adding-spacing-between-an-underline-natively-with-css
 /como-foi-o-processo-de-migração-de-do-jekyll-para-o-gatsby /how-was-the-migration-process-from-jekyll-to-gatsby
 /caracteres-estranhos-no-google-chrome-no-macos /strange-characters-in-google-chrome-on-macos
-https://lucasyb.com https://www.lucasyamamoto.com 
-https://www.lucasyb.com https://www.lucasyamamoto.com 
-https://lucasyamamoto.site https://www.lucasyamamoto.com 
-https://www.lucasyamamoto.site https://www.lucasyamamoto.com 
+https://lucasyb.com/* https://www.lucasyamamoto.com/:splat 301!
+https://www.lucasyb.com/* https://www.lucasyamamoto.com/:splat 301!
+https://lucasyamamoto.site/* https://www.lucasyamamoto.com/:splat 301!
+https://www.lucasyamamoto.site/* https://www.lucasyamamoto.com/:splat 301!
