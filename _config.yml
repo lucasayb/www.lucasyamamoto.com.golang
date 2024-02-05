@@ -1,18 +1,15 @@
 title: Lucas Yamamoto
 email: lucasayb97@gmail.com
 sort_direction: desc
-description: >- # this means to ignore newlines until "baseurl:"
-  Originally, I intended to create a space where I could post only development-related tips or tutorials. However, now I use this space to post anything that I would like to share.
-baseurl: ""
-url: "https://www.lucasyamamoto.com" 
+description: Originally, I intended to create a space where I could post only
+  development-related tips or tutorials. However, now I use this space to post
+  anything that I would like to share.
+baseurl: /
+url: https://www.lucasyamamoto.com
 twitter_username: lucasayb
-github_username:  lucasayb
-linkedin_username:  lucasayb
-instagram_username:  lucasyamamoto1997
-
+github_username: lucasayb
+linkedin_username: lucasayb
+instagram_username: lucasyamamoto1997
 disqus_shortname: lucas-yamamoto
-
 per_page: 10
-
-robots_txt: >-
-  User-agent: *\nDisallow: /search\n\nSitemap: https://www.lucasyamamoto.com/sitemap.xml
+robots_txt: "User-agent: *\\n\\nSitemap: https://www.lucasyamamoto.com/sitemap.xml"
