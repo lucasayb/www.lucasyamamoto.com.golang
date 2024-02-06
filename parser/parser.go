@@ -6,6 +6,7 @@ import (
 	"math"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/gomarkdown/markdown"
 	markdownParser "github.com/gomarkdown/markdown/parser"
@@ -56,6 +57,7 @@ type Config struct {
 func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 	dirEntries, err := os.ReadDir(dirName)
 	posts := make([]Post, 0)
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -67,7 +69,14 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 		}
 		filePath := strings.Join([]string{dirName, fileName}, "/")
 		parsedPost := Parse(filePath, fileName)
-		posts = append(posts, parsedPost)
+		date, err := time.Parse("2006-01-02 15:04:05", parsedPost.Frontmatter.Date)
+		if err != nil {
+			log.Fatal(err)
+		}
+		currentDate := time.Now()
+		if date.Before(currentDate) {
+			posts = append(posts, parsedPost)
+		}
 	}
 	perPage := config.PerPage
 	postsCount := len(posts)
