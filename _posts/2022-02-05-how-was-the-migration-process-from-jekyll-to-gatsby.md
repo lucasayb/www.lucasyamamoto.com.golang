@@ -85,7 +85,7 @@ As I only had 8 posts, I ended up doing the process manually, but I could have w
 redirect_from:
   - /dicas/2018/06/21/7-dicas-para-a-integracao-perfeita.html
 title: "7 tips for perfect integration"
-date: 2018-06-21 18:55:41 -0300
+date: 2018-06-21 18:55:41
 category: tips
 thumbnail: /assets/uploads/integracoes.jpg
 description: Nowadays, many companies

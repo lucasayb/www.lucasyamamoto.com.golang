@@ -1,6 +1,6 @@
 ---
 title: Deploy of App in Node with Docker and Elastic Beanstalk
-date: 2020-05-23 15:53:42 -0300
+date: 2020-05-23 15:53:42
 category: DevOps__#9b59b6
 description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, and with that, we were able to enjoy the whole range of

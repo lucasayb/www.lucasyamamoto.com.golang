@@ -1,7 +1,7 @@
 ---
 color: "#3498db"
 title: "Webinar Codeby: Intelligent Search in VTEX"
-date: 2021-12-27 14:30:10 -0300
+date: 2021-12-27 14:30:10
 category: Videos__#3498db
 thumbnail: /assets/uploads/screen-shot-2022-02-03-at-03.49.11.png
 description: I participated in a Webinar where we discussed Intelligent Search

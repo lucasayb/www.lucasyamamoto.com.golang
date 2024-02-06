@@ -1,6 +1,6 @@
 ---
 title: Setting Up a Development Environment with Docker and VSCode
-date: 2021-01-22 17:44:02 -0300
+date: 2021-01-22 17:44:02
 category: Development__#e74c3c
 description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, allowing us to take advantage of the full range of

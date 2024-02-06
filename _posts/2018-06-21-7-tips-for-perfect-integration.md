@@ -1,6 +1,6 @@
 ---
 title: 7 tips for developing the perfect integration
-date: 2018-06-21 18:55:41 -0300
+date: 2018-06-21 18:55:41
 category: Development__#e74c3c
 description: Nowadays, many companies that create their own websites to
   establish a presence on the web decide not to give up their ERP

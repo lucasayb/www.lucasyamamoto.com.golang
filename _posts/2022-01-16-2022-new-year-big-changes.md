@@ -1,6 +1,6 @@
 ---
 title: "2022: New Year, Big Changes"
-date: 2022-01-16 15:43:01 -0300
+date: 2022-01-16 15:43:01
 category: Life__#6ab04c
 description: Recently at CodeBy, we migrated our apps and deployments from
   Digital Ocean to AWS, allowing us to take advantage of the full range of
