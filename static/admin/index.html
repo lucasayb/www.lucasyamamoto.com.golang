@@ -38,19 +38,19 @@
     var PostPreview = createClass({
       render: function() {
         var entry = this.props.entry;
-        var image = entry.getIn(['data', 'thumbnail']);
-        var category = entry.getIn(['data', 'category']);
+        var image = entry?.getIn(['data', 'thumbnail']);
+        var category = entry?.getIn(['data', 'category']);
         var color = null
         var categoryName = null
-        var splittedCategory = category.split("__") || []
-        if (splittedCategory.length) {
-          categoryName = splittedCategory[0]
-          color = splittedCategory[1]
+        var splittedCategory = category?.split("__") || []
+        if (splittedCategory?.length) {
+          categoryName = splittedCategory?.[0]
+          color = splittedCategory?.[1]
         }
         var bg = this.props.getAsset(image);
         return h('div', {},
-          h('h1', {}, entry.getIn(['data', 'title'])),
-          h('img', {src: bg.toString()}),
+          h('h1', {}, entry?.getIn(['data', 'title'])),
+          h('img', {src: bg?.toString()}),
           h('span', {
             "className": "category-pill", 
             "style": { "backgroundColor": (color || "#fff") }

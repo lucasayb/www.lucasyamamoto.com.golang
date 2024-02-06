@@ -2,7 +2,7 @@ backend:
   name: github
   repo: lucasayb/lucasyamamoto.golang
   branch: main
-  site_domain: lucasyamamoto-golang.netlify.app
+  site_domain: www.lucasyamamoto.com
 
 media_folder: "static/assets/uploads"
 public_folder: "/assets/uploads"
@@ -33,7 +33,6 @@ collections:
       - { label: "Thumbnail", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Redirect from", name: "redirect_from", widget: "list" }
 
   - name: "pages"
     label: "Pages" # Used in the UI
