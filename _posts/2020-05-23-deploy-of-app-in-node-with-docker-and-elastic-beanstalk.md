@@ -7,7 +7,7 @@ description: Recently at CodeBy, we migrated our apps and deployments from
   services that Amazon Web Services has to offer.
 thumbnail: /assets/uploads/2020-05-23-deploy-de-app-em-node-com-docker-e-elastic-beanstalk-thumbnail.jpg
 ---
-, we currently use the following:
+Recently, at CodeBy, we migrated our apps and deployments from Digital Ocean to AWS, and with this, we were able to take advantage of the full range of services that Amazon Web Services has. Today, we currently make use of the following:
 
 * Elastic Container Registry
 * Code Pipeline
