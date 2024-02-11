@@ -2,14 +2,13 @@
 title: Setting Up a Development Environment with Docker and VSCode
 date: 2021-01-22 17:44:02
 category: Development__#e74c3c
-description: Recently at CodeBy, we migrated our apps and deployments from
-  Digital Ocean to AWS, allowing us to take advantage of the full range of
-  services that Amazon Web Services offers.
+description: When working with various technologies and having limited space on
+  your computer, we need to resort to more practical alternatives so that we can
+  have something minimally viable, in terms of agile deliveries, and in an
+  economical way.
 thumbnail: /assets/uploads/2021-01-28-montando-um-ambiente-de-desenvolvimento-com-docker-thumbnail.jpg
 ---
-When working with various technologies and having limited space on your computer, we need to resort to more practical alternatives so that we can have something minimally viable, in terms of agile deliveries, and in an economical way.
-
-Currently, I use a MacBook i5 2017 for programming and one of the main problems today is the fact that it has 128gb. Nowadays, my data is in the cloud and all my personal and company projects are versioned and saved on GitHub or GitLab, which would be great if I worked with only one technology. I have done projects in Ruby On Rails, NodeJS, Python with Django or Flask, using React, and several other different technologies, and all of them have something in common: the storage of libraries from each package manager.
+Previously, I used a MacBook i5 2017 for programming, and one of the main challenges was its limited 128GB storage. Back then, my data was stored in the cloud, and both my personal and company projects were versioned and saved on GitHub or GitLab. This setup would have been ideal if I worked with only one technology. I engaged in projects using Ruby on Rails, NodeJS, Python with Django or Flask, and React, among others. All these technologies shared a common issue: the storage of libraries from each package manager.
 
 Suppose that one day I need to do a project that uses React, I will need to save and manage my packages with `npm`. My JavaScript version should be managed with `nvm`. And this is just talking about front end. Moving to the back end, I would like to use Ruby On Rails. My package manager would be `bundler`, and the Ruby version manager would be `rvm`. In a short time, we can reach this "ceiling" of 128gb.
 
