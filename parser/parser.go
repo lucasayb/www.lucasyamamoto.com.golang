@@ -70,17 +70,21 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 		}
 		filePath := strings.Join([]string{dirName, fileName}, "/")
 		parsedPost := Parse(filePath, fileName)
-		date, err := time.Parse("2006-01-02 15:04:05", parsedPost.Frontmatter.Date)
+
+		loc, err := time.LoadLocation("America/Sao_Paulo")
 		if err != nil {
 			log.Fatal(err)
 		}
-		loc, err := time.LoadLocation("America/Montreal")
+		date, err := time.ParseInLocation("2006-01-02 15:04:05", parsedPost.Frontmatter.Date, loc)
+
 		if err != nil {
 			log.Fatal(err)
 		}
 		currentDate := time.Now().In(loc)
 		fmt.Print("Current date: ")
 		fmt.Println(currentDate)
+		fmt.Print("Post date: ")
+		fmt.Println(date)
 		if date.Before(currentDate) {
 			posts = append(posts, parsedPost)
 		}
