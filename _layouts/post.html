@@ -4,6 +4,7 @@
   <head>
     {{ template "head" .Config }}
     <title>{{ .Post.Frontmatter.Title }} | {{ .Config.Title }}</title>
+    <link rel="canonical" href="{{ .Config.Url }}/{{ .Post.Slug }}" />
     <meta name="description" content="{{ .Post.Frontmatter.Description }}" />
     <meta property="og:title" content="{{ .Post.Frontmatter.Title }}" />
     <meta
