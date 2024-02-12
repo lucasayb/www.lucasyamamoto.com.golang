@@ -2,6 +2,7 @@ package parser
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"math"
 	"os"
@@ -74,6 +75,8 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 			log.Fatal(err)
 		}
 		currentDate := time.Now()
+		fmt.Print("Current date: ")
+		fmt.Println(currentDate)
 		if date.Before(currentDate) {
 			posts = append(posts, parsedPost)
 		}
