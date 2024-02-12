@@ -1,5 +1,7 @@
 # www.lucasyamamoto.com.golang
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f253ccc8-baf3-4239-b39a-f8aa7b879308/deploy-status)](https://app.netlify.com/sites/lucasyamamoto-golang/deploys)
+
 www.lucasyamamoto.com.golang is a blog built with my own static site generator written in Go. It parses markdown files, applies layout templates, and generates a complete website including assets and sitemaps, ready to be deployed.
 
 ## Features
