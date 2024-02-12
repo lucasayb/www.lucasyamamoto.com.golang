@@ -1,6 +1,6 @@
 ---
 title: 5 worst hacking scenes from movies and TV shows
-date: 2024-02-12 15:26:00
+date: 2024-02-12 15:41:00
 category: TV Shows__#6ab04c
 description: "Hollywood is a well-known industry that creates movies and TV shows that are often unrealistic. However, there is one thing that stands out to me as being completely implausible: any scene involving hacking."
 thumbnail: /assets/uploads/scr-20240206-cnvc.jpeg

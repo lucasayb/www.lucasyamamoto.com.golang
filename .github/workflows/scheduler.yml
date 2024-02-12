@@ -2,7 +2,7 @@ name: Trigger Netlify Build
 
 on:
   schedule:
-    - cron: '40 18 * * *' # Runs at midnight UTC. Adjust the schedule as needed.
+    - cron: '45 18 * * *' # Runs at midnight UTC. Adjust the schedule as needed.
 
 jobs:
   build:
