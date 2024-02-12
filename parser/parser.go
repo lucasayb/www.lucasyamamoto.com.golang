@@ -74,7 +74,11 @@ func ParseMultiple(config Config, dirName string) ([]Post, Pages) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		currentDate := time.Now()
+		loc, err := time.LoadLocation("America/Montreal")
+		if err != nil {
+			log.Fatal(err)
+		}
+		currentDate := time.Now().In(loc)
 		fmt.Print("Current date: ")
 		fmt.Println(currentDate)
 		if date.Before(currentDate) {
