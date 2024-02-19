@@ -1,9 +1,9 @@
 ---
 title: Decap CMS with Hugo in Netlify
-description: Let's integrate the Open Source CMS with Hugo with just a few tips
-date: 2024-02-19 17:15:30
+date: 2024-02-19 09:00:00
 category: Development__#e74c3c
-thumbnail: "/assets/uploads/DALL-E-2024-02-11-23-47-57-Create-a-thumbnail-for-Easily-Editing-Site-Settings-Through-the-Decap-CMS-emphasizing-the-concept-of-user-friendly-website-management-The-image-sh.jpeg"
+description: Let's integrate the Open Source CMS with Hugo with just a few tips
+thumbnail: /assets/uploads/DALL-E-2024-02-11-23-47-57-Create-a-thumbnail-for-Easily-Editing-Site-Settings-Through-the-Decap-CMS-emphasizing-the-concept-of-user-friendly-website-management-The-image-sh.jpeg
 ---
 Decap CMS (formerly Netlify CMS) is used mainly to manage the content of your Static Site that uses markdown. You don't actually need to have a markdown website to use this CMS, but you may lose a lot of it's potential if you don't.
 
