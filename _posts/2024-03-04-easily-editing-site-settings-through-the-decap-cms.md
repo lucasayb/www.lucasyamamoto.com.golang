@@ -14,7 +14,7 @@ But before explaining how to do it, I need to explain some topics to you.
 
 ## Folder Collections vs Files Collections
 
-Recently, I wrote an article showing [how we could integrate the Hugo SSG with the Decap CMS](https://lucasyamamoto.com/decap-cms-with-hugo-in-netlify/). In the end, we build this `config.yml`, saved in the `static/admin` of my Hugo theme:
+Recently, I wrote an article showing [how we could integrate the Hugo SSG with the Decap CMS](https://www.lucasyamamoto.com/decap-cms-with-hugo). In the end, we build this `config.yml`, saved in the `static/admin` of my Hugo theme:
 
 ```yaml
 backend:
@@ -45,6 +45,8 @@ collections:
 ```
 
 What we've done here is build the file for the basic configuration of the Decap CMS. When we have a folder like `_posts` in Jekyll or `content/posts` (or `content/post` depending on your theme) in Hugo, we can have one or many markdown files inside the folder, and we want to add, edit, or remove the articles inside it through the Decap CMS. And when we do that, we are using a folder collection. You can have folder collections to manage posts, categories, and tags, and inside each folder, you will have many markdown files, and everything will be editable through the CMS.
+
+<!-- ADS -->
 
 A file collection is slightly different. This is a `_config.yml` file to edit a Jekyll website:
 

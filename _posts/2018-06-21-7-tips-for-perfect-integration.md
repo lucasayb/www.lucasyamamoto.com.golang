@@ -16,6 +16,8 @@ Before starting any part of the project, conduct tests. Tools like Postman are d
 
 The idea is to check how the information should be sent to the final system. This helps us study what transformations are necessary in the data from the initial system so that it fits its destination.
 
+<!-- ADS -->
+
 ## 3. Planning Is Essential
 
 After testing, it's time to get down to business. As obvious as it may seem, it is at this point that the development of the integration can become compromised. There are situations where both the initial system and the target software have flaws. And it is in these cases that the planning of the micro-application must consider both ends of the communication and be impeccable. Poor planning leads to a longer integration development process and constant corrections that could have been avoided at this step. Make flowcharts, talk to the client, don't worry about wasting time here. The more time lost in preparing your software, the more time is gained in the development itself and the more mature it will become. Excellent tools such as Draw.io are there to help you, but, despite the programmer working daily with a computer, they should never abandon paper and pen.

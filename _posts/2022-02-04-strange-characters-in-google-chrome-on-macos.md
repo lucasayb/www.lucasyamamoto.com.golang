@@ -32,6 +32,8 @@ In it, basically, the user was saying that they were having the same problem and
 
 And upon uninstalling it...
 
+<!-- ADS -->
+
 ![Roboto font uninstalled from the system](/assets/uploads/without-roboto.png "Roboto font uninstalled from the system")
 
 Everything went back to normal...

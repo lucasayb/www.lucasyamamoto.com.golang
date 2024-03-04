@@ -151,6 +151,8 @@ Here we have all the fields that comes by default with Hugo whenever we create a
 
 This will not show the field in the CMS and every time that you create a new post through it, the post will never be marked as draft. This is handy when you are a solo blogger and don't want to worry to much with editorial workflow.
 
+<!-- ADS -->
+
 ## 2. Creating the `index.html` file into the `static/admin` folder.
 
 This step if pretty straightforward. All you need to do is to create the file as mentioned and place the following content:

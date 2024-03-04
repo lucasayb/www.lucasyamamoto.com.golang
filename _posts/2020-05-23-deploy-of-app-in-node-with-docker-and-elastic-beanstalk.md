@@ -38,6 +38,8 @@ Basically, this application is simple. Its only goal is to display "Hello World"
 
 With our application on GitHub, we can proceed to the next step.
 
+<!-- ADS -->
+
 ## 2. Create a Docker image of your application
 
 To upload it to AWS, we first need our application to be "Dockerized", i.e., transformed into a Docker image so that we can upload it to the Elastic Container Registry and retrieve it from Elastic Beanstalk.

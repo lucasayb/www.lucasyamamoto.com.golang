@@ -24,6 +24,8 @@ All I needed to do was add the attribute `redirect_from` in the front_matter and
 
 Implementing page transitions was never more straightforward than it is with this plugin. This plugin allows you to make simple but beautiful transition effects on your pages without implementing too much code. It just works :)
 
+<!-- ADS -->
+
 ## 4. [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/?=gatsby-plugin-sitemap)
 
 A fast website is as crucial to SEO as adequately generating the sitemap. This plugin allows you to create the sitemap of your website in the build stage, and there are many options for you to customize it without having to build anything from scratch. And after that, you can place your sitemap in the Google Search Console, and everything will be indexed appropriately.

@@ -40,6 +40,8 @@ I'm not a big fan of Windows, but I have to admit that the installation process 
 
 > If your administrator account is different from your user account, you must add the user to the **docker-users** group. Run **Computer Management** as administrator and navigate to **Local Users and Groups** > **Groups** > **docker-users**. Right-click to add the user to the group. Log out and log in again for the changes to take effect.
 
+<!-- ADS -->
+
 ### Installing Docker on Linux (Ubuntu)
 
 Here I will show the installation on Ubuntu as I have always used Debian-based distros in my Linux time, but on the [Docker](https://docs.docker.com/engine/install) website you can find the installation process for other distros, all being very similar.

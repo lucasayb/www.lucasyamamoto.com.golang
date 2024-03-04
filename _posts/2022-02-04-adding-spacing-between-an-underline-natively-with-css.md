@@ -39,6 +39,8 @@ a {
 
 ![Link with the text-underline-offset](/assets/uploads/screen-shot-2022-02-04-at-01.53.46.png "Link with the text-underline-offset")
 
+<!-- ADS -->
+
 The official Mozilla documentation also mentions that, like many other CSS properties, this one also accepts global values:
 
 ```css

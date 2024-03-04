@@ -26,6 +26,8 @@ Basically, what she said is: "I'll create a **G**raphic **U**ser **I**nterface *
 
 I love the command: "start counterstrike". It's so simple! Why don't we program like that?
 
+<!-- ADS -->
+
 ## 2. Swordfish
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/u1Ds9CeG-VY" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -99,6 +99,8 @@ Your code should look like this:
 
 This will load your CSS previously created. You can test it by running your site locally:
 
+<!-- ADS -->
+
 ### Hugo
 
 ```bash

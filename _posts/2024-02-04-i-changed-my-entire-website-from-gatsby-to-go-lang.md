@@ -20,6 +20,8 @@ One thing to note is: while I'm building my own SSG to use it with my website, i
 
 ## Wins
 
+<!-- ADS -->
+
 What do I gain by switching to Go? Build time! Let's be fair: when you build a website with Gatsby, it does much more than just transforming Markdown files into HTML. It builds different versions of the images, creates an entire React distribution directory so that you can utilize all the potential of React, and the list goes on. However, for my blog, my personal testing environment, those features are not that crucial. They are important in contexts where you require high performance, such as for an e-commerce site or a SaaS platform, but for my blog, they are less so. What is important, however, is the build time. It used to take 2 minutes to build the entire site with Gatsby; now it takes 23 seconds, and I'm not even using the pre-compiled version of the app.
 
 ### Before

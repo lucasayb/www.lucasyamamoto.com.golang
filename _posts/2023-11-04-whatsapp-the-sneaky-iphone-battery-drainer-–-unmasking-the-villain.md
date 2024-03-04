@@ -21,6 +21,8 @@ I recently made a small adjustment in my WhatsApp settings. I disabled all the o
 
 Why, you wonder? It's pretty straightforward. Firstly, it prevents background downloads I don't really need. Secondly, it helps me save my cellular data. That's about it – a modest tweak for a smoother WhatsApp experience and more efficient data use.
 
+<!-- ADS -->
+
 ## Silenced groups
 
 While being part of various groups is essential for both work and social life, I don't always require every notification coming my way. It's important to note that each notification, even if it's just a tiny bit, takes a toll on my battery. So, here's the solution: just silence the group. All you need to do is perform a long press on the chat, select the "Mute" option, and choose your preferred duration for muting. This simple step lets me find the sweet spot between staying connected and conserving my phone's battery. Keep in mind that you'll still be notified if someone mentions you in that group, though.

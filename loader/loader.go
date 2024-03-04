@@ -1,8 +1,11 @@
 package loader
 
 import (
+	"bufio"
 	"bytes"
 	"log"
+	"os"
+	"regexp"
 	"static_site_generator/parser"
 	"text/template"
 )
@@ -39,6 +42,22 @@ func load(filePath string) *template.Template {
 	return tmpl
 }
 
+func loadAds() []byte {
+	file, err := os.OpenFile("_includes/ads.html", os.O_RDONLY, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	scanner := bufio.NewScanner(file)
+	var fileData []byte
+	for scanner.Scan() {
+		line := scanner.Bytes()
+		fileData = append(fileData, line...)
+	}
+
+	return fileData
+}
+
 func Homepager(homepageData HomepageData) bytes.Buffer {
 	tmpl := load("_layouts/home.html")
 	var rendered bytes.Buffer
@@ -51,6 +70,9 @@ func Homepager(homepageData HomepageData) bytes.Buffer {
 
 func Post(postData PostData) bytes.Buffer {
 	layout := postData.Post.Frontmatter.Layout
+
+	postData.Post.HTML = injectAds(postData.Post.HTML)
+
 	if layout == "" {
 		layout = "post"
 	}
@@ -63,34 +85,13 @@ func Post(postData PostData) bytes.Buffer {
 	return rendered
 }
 
+func injectAds(html string) string {
+	ads := loadAds()
+	matcher := regexp.MustCompile("<!-- ADS -->")
+	return string(matcher.ReplaceAll([]byte(html), ads))
+}
+
 func Layouts() *template.Template {
 	pattern := "_layouts/*.html"
 	return template.Must(template.ParseGlob(pattern))
 }
-
-// func Load() {
-// 	paginationBytes := Paginate(PaginationData{PreviousLink: "/", NextLink: "/page/1", PagesLength: 10})
-// 	fmt.Println(paginationBytes.String())
-// }
-
-// func Includes() {
-// 	pattern := "_partials/*.html"
-// 	return template.Must(template.ParseGlob(pattern))
-// }
-
-// func Load(templateFolder string, templateName string) template.Template {
-// 	pattern := ""
-// 	templates := template.Must(template.ParseGlob(pattern))
-// 	// filePath := strings.Join([]string{ templateFolder, "/", templateName, ".html" })
-
-// 	// file, err := os.ReadFile(filePath)
-// 	// if err != nil {
-// 	// 	log.Fatal(err)
-// 	// }
-
-// 	// templateData, errTemplate := template.New(templateName).Parse(string(file))
-// 	// if errTemplate != nil {
-// 	// 	log.Fatal(errTemplate)
-// 	// }
-// 	// return templateData.
-// }

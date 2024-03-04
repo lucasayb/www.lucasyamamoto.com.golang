@@ -14,6 +14,8 @@ One day, I saw an online store, [Marin Brasil](https://www.marinbrasil.com.br/),
 
 Since then, I've been wanting to learn Gatsby but didn't have time because my job at Codeby is full time. However, on January 26, 2022, I went on vacation (I had surgery so they're not exactly vacations haha). I ended up being idle at home and saw a great opportunity to study something.
 
+<!-- ADS -->
+
 ## Design
 
 First, I used Adobe XD to plan what I was going to do (sorry Figma folks, it's what I know hehe). I wanted to do the project really from scratch.

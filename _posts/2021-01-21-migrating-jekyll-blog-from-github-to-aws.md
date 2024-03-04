@@ -51,6 +51,8 @@ Then click "Save changes".
 
 And to finalize the configuration of our bucket, go to the bucket's "Permissions" tab and click "Edit" in the bucket policy.
 
+<!-- ADS -->
+
 You must put the following content on this page:
 
 ```json

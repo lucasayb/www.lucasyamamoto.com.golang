@@ -38,6 +38,8 @@ The previous examples demonstrate the diversity of applications for ChatGPT. It 
 
 ## **Will I lose my job?**
 
+<!-- ADS -->
+
 I believe that for several years to come, AI will be a companion rather than a direct competitor. It's important to understand and embrace its capabilities instead of fearing it. However, it's difficult to determine which jobs will be impacted at this point. We are currently experiencing a period called the AI Boom, which is the rapid evolution of Artificial Intelligence and its applications into the real world. With the advancement of computers and our understanding of AI, more investments are being placed into the field, and much more can be achieved with the evolution of the many technologies that have arisen since the beginning of this era. It's progressing as fast as the ascension of the internet, and the only certainty is that if you don't adapt, you will be affected by the deprecation train. According to the article "AI Timelines" from Our World In Data, 352 experts were asked when they believe there is a 50% chance that human-level AI exists. Half of the experts gave a date before 2061, and 90% gave a date within the next 100 years.
 
 It can be alarming to consider the possibility of AI performing human-level work. However, it's crucial to understand and use the tools we have to prepare ourselves for this process, which seems to be getting closer and closer.
