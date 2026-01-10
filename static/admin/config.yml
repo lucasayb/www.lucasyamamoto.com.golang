@@ -21,16 +21,18 @@ collections:
           widget: "datetime",
           format: "YYYY-MM-DD hh:mm:ss",
         }
-      - { label: "Category",
+      - {
+          label: "Category",
           name: "category",
           widget: "relation",
           collection: "categories",
           search_fields: ["name"],
           value_field: "{{name}}__{{color}}",
-          display_fields: ["name"]
+          display_fields: ["name"],
         }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
 
@@ -47,7 +49,7 @@ collections:
           format: "YYYY-MM-DD hh:mm:ss",
         }
       - { label: "Body", name: "body", widget: "markdown" }
-      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
 
   - name: "categories"
     label: "Categories"
@@ -71,16 +73,41 @@ collections:
         label: "General Settings"
         file: "_config.yml" # The path to the file where you want to save your structure
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Sort Direction", name: "sort_direction", widget: "select", options: ["asc", "desc"]}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Base URL", name: "baseurl", widget: "string"}
-          - {label: "URL", name: "url", widget: "string"}
-          - {label: "Twitter Username", name: "twitter_username", widget: "string"}
-          - {label: "GitHub Username", name: "github_username", widget: "string"}
-          - {label: "LinkedIn Username", name: "linkedin_username", widget: "string"}
-          - {label: "Instagram Username", name: "instagram_username", widget: "string"}
-          - {label: "Disqus Shortname", name: "disqus_shortname", widget: "string"}
-          - {label: "Per Page", name: "per_page", widget: "number"}
-          - {label: "robots.txt", name: "robots_txt", widget: "text"}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - {
+              label: "Sort Direction",
+              name: "sort_direction",
+              widget: "select",
+              options: ["asc", "desc"],
+            }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Base URL", name: "baseurl", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - {
+              label: "Twitter Username",
+              name: "twitter_username",
+              widget: "string",
+            }
+          - {
+              label: "GitHub Username",
+              name: "github_username",
+              widget: "string",
+            }
+          - {
+              label: "LinkedIn Username",
+              name: "linkedin_username",
+              widget: "string",
+            }
+          - {
+              label: "Instagram Username",
+              name: "instagram_username",
+              widget: "string",
+            }
+          - {
+              label: "Disqus Shortname",
+              name: "disqus_shortname",
+              widget: "string",
+            }
+          - { label: "Per Page", name: "per_page", widget: "number" }
+          - { label: "robots.txt", name: "robots_txt", widget: "text" }

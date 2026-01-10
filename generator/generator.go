@@ -36,6 +36,7 @@ func GenerateHome(config parser.Config, posts []parser.Post, pages parser.Pages,
 	from := 0
 	to := pages.PerPage
 
+	posts = filterPosts(posts)
 	posts = sortPosts(config, posts)
 	postsCount := len(posts)
 	var rendered bytes.Buffer
@@ -139,6 +140,17 @@ func GenerateSitemap(posts []parser.Post, pages []parser.Post, config parser.Con
 		log.Fatal(err)
 	}
 	os.WriteFile(filepath.Join(output, "sitemap.xml"), buffer.Bytes(), 0666)
+}
+
+func filterPosts(posts []parser.Post) []parser.Post {
+	for z := 0; z < len(posts); z++ {
+		post := posts[z]
+		if post.Frontmatter.Draft {
+			posts = append(posts[:z], posts[z+1:]...)
+			z--
+		}
+	}
+	return posts
 }
 
 func sortPosts(config parser.Config, posts []parser.Post) []parser.Post {

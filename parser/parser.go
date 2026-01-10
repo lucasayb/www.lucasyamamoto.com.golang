@@ -22,6 +22,7 @@ type Frontmatter struct {
 	Category     string
 	Color        string
 	Layout       string
+	Draft 	 bool
 	RedirectFrom []string `yaml:"redirect_from"`
 }
 
