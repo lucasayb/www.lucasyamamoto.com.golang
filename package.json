@@ -6,9 +6,9 @@
   "author": "Lucas Yamamoto <17356081+lucasayb@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "live-server": "^1.2.2",
     "node-sass": "^9.0.0"
   },
-
   "scripts": {
     "build:css": "node-sass sass/styles.scss _site/assets/css/styles.css",
     "build": "yarn build:css && bin/build",
